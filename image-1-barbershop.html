@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  Design Read: Established all-in-one barbershop + styling salon for a whole-family
+  Black hair-care clientele, warm confident heritage language, leaning toward a bold
+  editorial poster look. Charcoal + warm amber, oversized condensed display.
+  Signature: the dual-craft split — one roof that does a clean fade AND expert loc work.
+  Skills: refero (reference-lock, anti-average) → taste (design read + anti-default) →
+  ui-ux-pro-max (barbershop heritage search) → frontend-design (poster type/palette) →
+  design-system (tokens). Serif avoided; condensed grotesque display chosen.
+-->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image 1 Barbershop & Styling Studio — Fades & Locs on Charlotte Pike, Nashville</title>
+<meta name="description" content="One chair for the whole family. 25 years on Charlotte Pike doing clean fades and expert loc retwists, wash and styling. Book with Image 1 Barbershop & Styling Studio in West Nashville.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Archivo+Black&family=Archivo+Narrow:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#161311;
+    --char:#221d19;
+    --cream:#f4ece0;
+    --paper:#faf5ec;
+    --amber:#c8892f;
+    --amber-lit:#e0a848;
+    --muted:#7d7166;
+    --line:rgba(244,236,224,.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--ink);color:var(--cream);
+    font-family:'Archivo',system-ui,sans-serif;
+    font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+  a{color:inherit}
+  .display{font-family:'Archivo Black',sans-serif;letter-spacing:-.02em;line-height:.92;text-wrap:balance}
+
+  /* ---- HERO ---- */
+  .hero{position:relative;padding:88px 0 76px;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;background:
+    radial-gradient(120% 90% at 82% 8%,rgba(200,137,47,.20),transparent 55%),
+    radial-gradient(90% 70% at 0% 100%,rgba(200,137,47,.07),transparent 60%);pointer-events:none}
+  .eyebrow{font-family:'Archivo Narrow';font-weight:700;text-transform:uppercase;
+    letter-spacing:.32em;font-size:13px;color:var(--amber-lit)}
+  .hero h1{font-size:clamp(3.1rem,10.5vw,7.4rem);margin:22px 0 0;color:var(--paper)}
+  .hero h1 em{font-style:normal;color:var(--amber)}
+  .lede{max-width:33ch;margin:28px 0 0;font-size:clamp(1.05rem,2.3vw,1.32rem);color:#d8cdbe}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:26px 40px;margin-top:40px;align-items:center}
+  .cta{display:inline-flex;align-items:center;gap:12px;background:var(--amber);color:#161311;
+    font-family:'Archivo';font-weight:700;font-size:1.05rem;letter-spacing:.01em;
+    padding:18px 30px;border-radius:2px;text-decoration:none;transition:transform .2s,background .2s;cursor:pointer}
+  .cta:hover{background:var(--amber-lit);transform:translateY(-2px)}
+  .cta small{font-weight:600;opacity:.8;font-size:.82rem}
+  .hours-tag{font-family:'Archivo Narrow';font-weight:600;text-transform:uppercase;letter-spacing:.12em;
+    font-size:.82rem;color:var(--muted);max-width:20ch;line-height:1.5}
+
+  /* ---- DUAL CRAFT (signature) ---- */
+  .craft{border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    display:grid;grid-template-columns:1fr 1fr}
+  .craft > div{padding:64px 40px}
+  .craft > div:first-child{border-right:1px solid var(--line)}
+  .craft .n{font-family:'Archivo Narrow';font-weight:700;letter-spacing:.3em;font-size:12px;color:var(--amber-lit)}
+  .craft h2{font-family:'Archivo Black';font-size:clamp(2rem,5vw,3.2rem);color:var(--paper);margin:14px 0 12px;line-height:.95}
+  .craft p{color:#cabfb0;max-width:34ch;font-size:1.02rem}
+  .craft ul{list-style:none;margin-top:20px;display:flex;flex-wrap:wrap;gap:8px 10px}
+  .craft li{font-family:'Archivo Narrow';font-weight:600;font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;
+    border:1px solid var(--line);padding:7px 12px;border-radius:2px;color:#d8cdbe}
+
+  /* ---- QUOTES ---- */
+  .quotes{padding:96px 0 82px;background:var(--char)}
+  .quotes .head{font-family:'Archivo Narrow';font-weight:700;text-transform:uppercase;letter-spacing:.3em;
+    font-size:12px;color:var(--amber-lit);margin-bottom:8px}
+  .quotes .headline{font-family:'Archivo Black';font-size:clamp(1.6rem,4vw,2.4rem);color:var(--paper);max-width:20ch;margin-bottom:52px}
+  blockquote{border-left:3px solid var(--amber);padding:6px 0 6px 26px;max-width:46ch;margin-bottom:44px}
+  blockquote p{font-size:clamp(1.3rem,3vw,1.72rem);line-height:1.35;color:var(--paper);font-weight:500;text-wrap:pretty}
+  blockquote cite{display:block;margin-top:16px;font-style:normal;font-family:'Archivo Narrow';font-weight:600;
+    text-transform:uppercase;letter-spacing:.12em;font-size:.8rem;color:var(--muted)}
+
+  /* ---- ABOUT ---- */
+  .about{padding:96px 0}
+  .about .grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:start}
+  .about .big{font-family:'Archivo Black';font-size:clamp(3.4rem,8vw,6rem);color:var(--amber);line-height:.9}
+  .about .big span{display:block;font-size:.22em;letter-spacing:.28em;color:var(--muted);
+    font-family:'Archivo Narrow';text-transform:uppercase;margin-top:14px}
+  .about p{font-size:clamp(1.1rem,2.4vw,1.42rem);line-height:1.5;color:#e4dacb;max-width:40ch;text-wrap:pretty}
+  .about p + p{margin-top:22px;font-size:1.05rem;color:#c1b6a7}
+
+  /* ---- CTA ---- */
+  .close{padding:104px 0 118px;text-align:center;background:
+    radial-gradient(80% 120% at 50% 0%,rgba(200,137,47,.16),transparent 60%)}
+  .close h2{font-family:'Archivo Black';font-size:clamp(2.4rem,7vw,5rem);color:var(--paper);max-width:16ch;margin:0 auto 10px;line-height:.96}
+  .close p{color:var(--muted);font-family:'Archivo Narrow';text-transform:uppercase;letter-spacing:.14em;font-size:.9rem;margin-bottom:34px}
+  .phone{font-family:'Archivo Black';font-size:clamp(1.6rem,4vw,2.2rem);color:var(--amber);text-decoration:none;display:inline-block;margin-top:8px}
+  footer{border-top:1px solid var(--line);padding:34px 0;text-align:center;color:var(--muted);
+    font-family:'Archivo Narrow';font-size:.84rem;letter-spacing:.06em}
+
+  @media(max-width:760px){
+    .craft{grid-template-columns:1fr}
+    .craft > div:first-child{border-right:none;border-bottom:1px solid var(--line)}
+    .craft > div{padding:48px 26px}
+    .about .grid{grid-template-columns:1fr;gap:32px}
+    .hero{padding:64px 0 56px}
+    .hero-meta{gap:22px}
+    .cta{width:100%;justify-content:center}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Charlotte Pike · West Nashville · Est. 2001</span>
+    <h1 class="display">One chair.<br>Every kind of<br><em>hair.</em></h1>
+    <p class="lede">A clean fade and an expert loc retwist under the same roof — for you, your fiancé, and the whole family.</p>
+    <div class="hero-meta">
+      <a class="cta" href="tel:+16153528561">Call to book <small>615-352-8561</small></a>
+      <span class="hours-tag">Tue–Fri 10:30–8 · Sat 7–6<br>6202 Charlotte Pike</span>
+    </div>
+  </div>
+</header>
+
+<section class="craft" aria-label="Two crafts, one shop">
+  <div>
+    <span class="n">01 — The Cuts</span>
+    <h2>Fades & lines,<br>sharp every time.</h2>
+    <p>Men's and women's cuts, razor edge-ups, beard shaping, and eyebrows — done right, priced fair.</p>
+    <ul><li>Skin fades</li><li>Razor lines</li><li>Beard trims</li><li>Eyebrows</li></ul>
+  </div>
+  <div>
+    <span class="n">02 — The Styling</span>
+    <h2>Locs, color,<br>wash & retwist.</h2>
+    <p>Full styling salon in the back — loc retwists, wash and condition, color, and weaves by stylists who know your hair.</p>
+    <ul><li>Loc retwist</li><li>Wash & style</li><li>Hair color</li><li>Weaves</li></ul>
+  </div>
+</section>
+
+<section class="quotes">
+  <div class="wrap">
+    <p class="head">In their words</p>
+    <h2 class="headline">Twenty-five years of people who keep coming back.</h2>
+    <blockquote>
+      <p>"Stephanie did an AMAZING job washing, conditioning, retwisting and styling me and my fiancé's dreads — for a very reasonable price."</p>
+      <cite>— Gerard Toney · Google review</cite>
+    </blockquote>
+    <blockquote>
+      <p>A full-service barbershop and styling salon on Charlotte Pike since 2001, rated 4.5 stars across 80 reviews.</p>
+      <cite>— From Google & Yelp listings</cite>
+    </blockquote>
+  </div>
+</section>
+
+<section class="about">
+  <div class="wrap grid">
+    <div class="big">25<span>Years on the Pike</span></div>
+    <div>
+      <p>Image 1 has been part of West Nashville since 2001 — one of the few shops in town that gives a crisp fade and a proper loc retwist without sending you across the city.</p>
+      <p>Stylists like Stephanie are named by regulars for a reason. The only thing missing was somewhere online to see the hours and book a chair. So we built you one.</p>
+    </div>
+  </div>
+</section>
+
+<section class="close">
+  <div class="wrap">
+    <h2 class="display">Grab a chair before the walk-in rush.</h2>
+    <p>Tue–Fri 10:30am–8pm · Sat 7am–6pm</p>
+    <a class="phone" href="tel:+16153528561">615-352-8561</a>
+  </div>
+</section>
+
+<footer>
+  Image 1 Barbershop & Styling Studio · 6202 Charlotte Pike, Nashville, TN 37209
+</footer>
+
+</body>
+</html>

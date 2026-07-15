@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  Design Read: Mobile ceramic-coating detailer who makes cars showroom-new and comes to you.
+  Sleek dark automotive language, leaning toward deep obsidian + a warm showroom-gold accent
+  (the "wet paint under showroom lights" feel), tight modern grotesque — NOT the acid-green
+  dark-tech slop default. Signature: a before→after diagonal split + "we come to you".
+  Skills: refero → taste (rejected acid-green dark default) → ui-ux-pro-max (automotive dark)
+  → frontend-design (obsidian + gold, gloss) → design-system (tokens).
+-->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deluxe Mobile Detailing — Ceramic Coating That Comes to You, Nashville</title>
+<meta name="description" content="Mobile detailing and ceramic coating across greater Nashville. Paint correction, swirl and scratch removal, pet-hair removal — showroom-ready results in your own driveway.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --obsidian:#0b0c0e;
+    --coal:#141619;
+    --panel:#1b1e22;
+    --fog:#e7e9ec;
+    --steel:#9aa2ac;
+    --gold:#d7a94b;
+    --gold-lit:#ecc571;
+    --line:rgba(215,169,75,.16);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--obsidian);color:var(--fog);font-family:'Space Grotesk',system-ui,sans-serif;
+    font-size:18px;line-height:1.62;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 28px}
+  a{color:inherit}
+  .sora{font-family:'Sora',sans-serif;letter-spacing:-.03em;line-height:.98;text-wrap:balance}
+
+  /* ---- HERO ---- */
+  .hero{position:relative;padding:96px 0 84px;overflow:hidden;
+    background:
+      radial-gradient(80% 60% at 88% 12%,rgba(215,169,75,.16),transparent 55%),
+      linear-gradient(180deg,#0b0c0e,#101215)}
+  .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
+    background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.5}
+  .badge{display:inline-flex;align-items:center;gap:10px;font-family:'Sora';font-weight:600;font-size:12px;
+    text-transform:uppercase;letter-spacing:.2em;color:var(--gold-lit);
+    border:1px solid var(--line);padding:9px 16px;border-radius:100px}
+  .badge b{color:var(--fog);font-weight:500}
+  .hero h1{font-family:'Sora';font-weight:800;font-size:clamp(2.9rem,9vw,6.8rem);margin:26px 0 0;line-height:.94}
+  .hero h1 span{color:var(--gold)}
+  .hero .lede{max-width:36ch;margin-top:26px;font-size:clamp(1.08rem,2.4vw,1.36rem);color:#c3c9d1;text-wrap:pretty}
+  .hero .row{margin-top:40px;display:flex;flex-wrap:wrap;gap:16px 24px;align-items:center}
+  .btn{background:var(--gold);color:#12100a;font-family:'Sora';font-weight:700;font-size:1.04rem;
+    padding:18px 32px;border-radius:4px;text-decoration:none;transition:transform .2s,background .2s;cursor:pointer;display:inline-block}
+  .btn:hover{background:var(--gold-lit);transform:translateY(-2px)}
+  .callout{font-size:.92rem;color:var(--steel);max-width:22ch;line-height:1.5}
+  .callout b{color:var(--gold-lit);font-weight:600}
+
+  /* ---- BEFORE/AFTER (signature) ---- */
+  .ba{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--coal)}
+  .ba .split{display:grid;grid-template-columns:1fr 1fr;min-height:270px;position:relative}
+  .ba .side{padding:56px 44px;display:flex;flex-direction:column;justify-content:center}
+  .ba .before{background:linear-gradient(120deg,#17191c,#101215);color:#8b929b}
+  .ba .after{background:linear-gradient(120deg,#1e2126,#15171b);
+    clip-path:polygon(9% 0,100% 0,100% 100%,0 100%);margin-left:-9%;padding-left:calc(44px + 9%)}
+  .ba .k{font-family:'Sora';font-weight:600;text-transform:uppercase;letter-spacing:.24em;font-size:11px;margin-bottom:12px}
+  .ba .before .k{color:#6b727b}
+  .ba .after .k{color:var(--gold-lit)}
+  .ba h3{font-family:'Sora';font-weight:700;font-size:clamp(1.4rem,3.4vw,2.2rem);line-height:1.05}
+  .ba .before h3{color:#aeb4bc}
+  .ba .after h3{color:var(--fog)}
+  .ba p{margin-top:10px;font-size:.98rem;max-width:26ch}
+  .ba .after p{color:#c3c9d1}
+
+  /* ---- WHAT WE DO ---- */
+  .do{padding:88px 0 74px}
+  .do .kick{font-family:'Sora';font-weight:600;text-transform:uppercase;letter-spacing:.22em;font-size:12px;color:var(--gold-lit)}
+  .do h2{font-family:'Sora';font-weight:800;font-size:clamp(1.9rem,4.8vw,3rem);margin:12px 0 40px;max-width:20ch;line-height:1.02}
+  .rows{border-top:1px solid var(--line)}
+  .drow{display:grid;grid-template-columns:64px 1fr;gap:24px;padding:26px 0;border-bottom:1px solid var(--line);align-items:baseline}
+  .drow .num{font-family:'Sora';font-weight:700;color:var(--gold);font-size:1.1rem}
+  .drow .t{font-family:'Sora';font-weight:600;font-size:1.24rem}
+  .drow .d{color:var(--steel);font-size:1rem;margin-top:4px;max-width:52ch}
+
+  /* ---- QUOTES ---- */
+  .proof{background:var(--coal);padding:92px 0 82px}
+  .proof .kick{font-family:'Sora';font-weight:600;text-transform:uppercase;letter-spacing:.22em;font-size:12px;color:var(--gold-lit);margin-bottom:8px}
+  .proof h2{font-family:'Sora';font-weight:800;font-size:clamp(1.8rem,4.6vw,2.7rem);max-width:20ch;margin-bottom:48px;line-height:1.03}
+  .qg{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  .q{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:34px 30px}
+  .q .stars{color:var(--gold);letter-spacing:4px;font-size:.9rem;margin-bottom:16px}
+  .q p{font-size:1.16rem;line-height:1.42;color:#e7e9ec;text-wrap:pretty}
+  .q cite{display:block;margin-top:18px;font-style:normal;font-family:'Sora';font-weight:500;text-transform:uppercase;letter-spacing:.1em;font-size:.76rem;color:var(--steel)}
+  .rating{grid-column:1/-1;display:flex;align-items:center;gap:22px;flex-wrap:wrap;padding:8px 4px}
+  .rating .big{font-family:'Sora';font-weight:800;font-size:clamp(2.4rem,6vw,3.4rem);color:var(--gold)}
+  .rating .txt{color:var(--steel);font-size:.98rem;max-width:30ch}
+
+  /* ---- CTA ---- */
+  .close{text-align:center;padding:100px 0 116px;
+    background:radial-gradient(70% 120% at 50% 0%,rgba(215,169,75,.14),transparent 60%)}
+  .close h2{font-family:'Sora';font-weight:800;font-size:clamp(2.3rem,6.5vw,4.6rem);max-width:15ch;margin:0 auto 14px;line-height:.98}
+  .close h2 span{color:var(--gold)}
+  .close p{color:var(--steel);margin-bottom:30px;font-size:1.02rem}
+  .close .num{font-family:'Sora';font-weight:800;font-size:clamp(1.5rem,4vw,2.1rem);color:var(--gold);text-decoration:none;display:inline-block;margin-top:6px}
+  footer{border-top:1px solid var(--line);text-align:center;padding:30px;color:var(--steel);font-size:.82rem}
+
+  @media(max-width:760px){
+    .ba .split{grid-template-columns:1fr}
+    .ba .after{clip-path:none;margin-left:0;padding-left:44px;border-top:1px solid var(--line)}
+    .qg{grid-template-columns:1fr}
+    .drow{grid-template-columns:44px 1fr;gap:16px}
+    .btn{width:100%;text-align:center}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="badge"><b>Mobile detailing</b> · Greater Nashville</span>
+    <h1 class="sora">We bring the<br>showroom to<br>your <span>driveway.</span></h1>
+    <p class="lede">Full ceramic coating, paint correction, and interior detailing — done at your home or office, so your car looks brand new without you going anywhere.</p>
+    <div class="row">
+      <a class="btn" href="tel:+16159685023">Book a detail · 615-968-5023</a>
+      <span class="callout"><b>We come to you.</b> Pickup &amp; drop-off available.</span>
+    </div>
+  </div>
+</header>
+
+<section class="ba" aria-label="Before and after">
+  <div class="wrap">
+    <div class="split">
+      <div class="side before">
+        <span class="k">Before</span>
+        <h3>Swirls, scratches, years of road.</h3>
+        <p>Faded paint, pet hair, and grime that a car wash can't touch.</p>
+      </div>
+      <div class="side after">
+        <span class="k">After</span>
+        <h3>Every scratch out. Coated to last.</h3>
+        <p>Ceramic-sealed, corrected paint that reads brand-new in the light.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="do">
+  <div class="wrap">
+    <p class="kick">The work</p>
+    <h2>What "deluxe" actually means.</h2>
+    <div class="rows">
+      <div class="drow"><span class="num">01</span><div><div class="t">Ceramic Coating</div><div class="d">A durable sealed layer that keeps the shine and shrugs off water, dirt, and UV.</div></div></div>
+      <div class="drow"><span class="num">02</span><div><div class="t">Paint Correction</div><div class="d">Swirl and scratch removal that pulls years of wear out of the clear coat.</div></div></div>
+      <div class="drow"><span class="num">03</span><div><div class="t">Full Interior &amp; Exterior</div><div class="d">Deep clean inside and out — including stubborn pet-hair removal.</div></div></div>
+      <div class="drow"><span class="num">04</span><div><div class="t">Pickup &amp; Drop-Off</div><div class="d">Can't be home? We'll grab the car and return it done.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="proof">
+  <div class="wrap">
+    <p class="kick">What customers say</p>
+    <h2>A perfect record, one detail at a time.</h2>
+    <div class="qg">
+      <div class="q">
+        <div class="stars">★★★★★</div>
+        <p>"They did an amazing job ceramic coating my car, got every scratch out, and the car looks brand new."</p>
+        <cite>— Facebook review</cite>
+      </div>
+      <div class="q">
+        <div class="stars">★★★★★</div>
+        <p>"Even though he was booked out, he accommodated my urgent detailing needs — and the quality of work and attention to detail really showed."</p>
+        <cite>— Facebook review</cite>
+      </div>
+      <div class="rating">
+        <span class="big">4.9★</span>
+        <span class="txt">Averaged across every Facebook review — a near-perfect record for a shop with no website until now.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="close">
+  <div class="wrap">
+    <h2 class="sora">Park it once.<br>Pick it up <span>flawless.</span></h2>
+    <p>Text or call to book a mobile detail anywhere in greater Nashville.</p>
+    <a class="num" href="tel:+16159685023">615-968-5023</a>
+  </div>
+</section>
+
+<footer>Deluxe Mobile Detailing · Mobile service across Greater Nashville, TN</footer>
+
+</body>
+</html>

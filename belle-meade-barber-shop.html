@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  Design Read: Classic, faith-friendly, old-school walk-in barbershop in Belle Meade where
+  regulars stay 20+ years. Vintage Americana language, leaning toward a traditional
+  barber-pole heritage palette — cream, deep navy, barber red, slab/serif signage type.
+  Serif/slab is justified here: genuine heritage/vintage barbershop craft.
+  Signature: a "just walk in" hours block that fixes the reported phone friction.
+  Skills: refero → taste (design read) → ui-ux-pro-max (barber heritage) → frontend-design
+  (vintage slab, enamel-sign motif) → design-system (tokens).
+-->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Belle Meade Barber Shop — Old-School Walk-In Cuts in West Meade, Nashville</title>
+<meta name="description" content="No appointment needed. A laid-back Belle Meade barbershop where regulars have been coming for 20 years. Good cuts, fair prices, old-school chairs. Walk in Mon–Sat.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Work+Sans:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#132a41;
+    --navy-deep:#0d1f30;
+    --cream:#f3ead6;
+    --cream-2:#ece0c6;
+    --red:#b23122;
+    --red-lit:#c9412f;
+    --ink:#20242b;
+    --muted:#5f6b78;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--cream);color:var(--ink);font-family:'Work Sans',system-ui,sans-serif;
+    font-size:18px;line-height:1.62;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 26px}
+  a{color:inherit}
+  .slab{font-family:'Alfa Slab One',serif;font-weight:400;letter-spacing:.005em;line-height:1;text-wrap:balance}
+  .cond{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.14em}
+
+  /* barber-pole stripe motif */
+  .pole{height:8px;background:repeating-linear-gradient(115deg,var(--red) 0 16px,var(--cream) 16px 32px,var(--navy) 32px 48px)}
+
+  /* ---- HERO ---- */
+  .hero{background:var(--navy);color:var(--cream);position:relative;overflow:hidden}
+  .hero .inner{padding:78px 0 70px;position:relative}
+  .hero::after{content:"";position:absolute;right:-90px;top:-90px;width:340px;height:340px;border-radius:50%;
+    border:2px solid rgba(243,234,214,.08);box-shadow:0 0 0 40px rgba(243,234,214,.04)}
+  .est{font-family:'Oswald';text-transform:uppercase;letter-spacing:.28em;font-size:13px;color:var(--red-lit);font-weight:600}
+  .hero h1{font-family:'Alfa Slab One',serif;font-size:clamp(2.7rem,8.5vw,5.6rem);line-height:.98;margin:20px 0 0;color:var(--cream)}
+  .hero h1 span{color:var(--red-lit)}
+  .hero .sub{max-width:34ch;margin-top:24px;font-size:clamp(1.05rem,2.4vw,1.3rem);color:#d9cdb2}
+  .hero .actions{margin-top:38px;display:flex;flex-wrap:wrap;gap:18px 24px;align-items:center}
+  .btn{font-family:'Oswald';text-transform:uppercase;letter-spacing:.1em;font-weight:600;font-size:1rem;
+    background:var(--red);color:var(--cream);padding:16px 30px;border-radius:3px;text-decoration:none;
+    transition:background .2s,transform .2s;cursor:pointer;display:inline-block}
+  .btn:hover{background:var(--red-lit);transform:translateY(-2px)}
+  .hero .addr{font-family:'Oswald';text-transform:uppercase;letter-spacing:.1em;font-size:.82rem;color:#96a3b1}
+
+  /* ---- WALK-IN (signature) ---- */
+  .walkin{background:var(--cream-2);border-bottom:3px solid var(--navy)}
+  .walkin .grid{display:grid;grid-template-columns:1.1fr 1fr;gap:0;align-items:stretch}
+  .walkin .msg{padding:70px 46px 70px 0}
+  .walkin .msg h2{font-family:'Alfa Slab One',serif;font-size:clamp(1.9rem,5vw,3rem);color:var(--navy);line-height:1.02;margin-bottom:16px}
+  .walkin .msg p{max-width:34ch;color:#4a4235;font-size:1.06rem}
+  .board{background:var(--navy);color:var(--cream);padding:44px 40px;border-radius:4px;align-self:center;box-shadow:0 20px 40px rgba(13,31,48,.22)}
+  .board .lbl{font-family:'Oswald';text-transform:uppercase;letter-spacing:.22em;font-size:12px;color:var(--red-lit);margin-bottom:18px}
+  .board .row{display:flex;justify-content:space-between;gap:20px;padding:11px 0;border-bottom:1px solid rgba(243,234,214,.12);font-family:'Oswald';letter-spacing:.06em;text-transform:uppercase;font-size:.95rem}
+  .board .row:last-child{border-bottom:none}
+  .board .row .d{color:#c3cad2}
+  .board .row.closed .t{color:#7b8794}
+
+  /* ---- QUOTES ---- */
+  .voices{padding:92px 0 78px}
+  .voices .kicker{font-family:'Oswald';text-transform:uppercase;letter-spacing:.28em;font-size:12px;color:var(--red);margin-bottom:10px}
+  .voices h2{font-family:'Alfa Slab One',serif;font-size:clamp(1.7rem,4.4vw,2.7rem);color:var(--navy);max-width:18ch;margin-bottom:50px;line-height:1.05}
+  .qgrid{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+  .card{background:#fff;border:1px solid var(--cream-2);border-top:5px solid var(--red);border-radius:4px;padding:34px 30px;box-shadow:0 8px 20px rgba(19,42,65,.05)}
+  .card p{font-size:1.16rem;line-height:1.42;color:#2a2f36;text-wrap:pretty}
+  .card cite{display:block;margin-top:18px;font-style:normal;font-family:'Oswald';text-transform:uppercase;letter-spacing:.1em;font-size:.78rem;color:var(--muted)}
+  .card.wide{grid-column:1/-1}
+
+  /* ---- ABOUT ---- */
+  .story{background:var(--navy);color:var(--cream);padding:90px 0}
+  .story .grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:center}
+  .story .yrs{font-family:'Alfa Slab One',serif;font-size:clamp(3rem,9vw,5.6rem);color:var(--red-lit);line-height:.9}
+  .story .yrs span{display:block;font-family:'Oswald';font-size:.16em;letter-spacing:.24em;text-transform:uppercase;color:#96a3b1;margin-top:14px}
+  .story p{font-size:clamp(1.1rem,2.4vw,1.4rem);line-height:1.5;color:#e7dcc4;max-width:42ch;text-wrap:pretty}
+  .story p + p{margin-top:20px;font-size:1.02rem;color:#c3cad2}
+
+  /* ---- CTA ---- */
+  .close{text-align:center;padding:96px 0 108px}
+  .close h2{font-family:'Alfa Slab One',serif;font-size:clamp(2.1rem,6vw,4rem);color:var(--navy);max-width:16ch;margin:0 auto 14px;line-height:1.02}
+  .close p{font-family:'Oswald';text-transform:uppercase;letter-spacing:.14em;color:var(--muted);font-size:.9rem;margin-bottom:30px}
+  .phone{font-family:'Alfa Slab One',serif;font-size:clamp(1.5rem,4vw,2.1rem);color:var(--red);text-decoration:none}
+  footer{background:var(--navy-deep);color:#8a97a5;text-align:center;padding:30px 0;font-family:'Oswald';text-transform:uppercase;letter-spacing:.1em;font-size:.78rem}
+
+  @media(max-width:760px){
+    .walkin .grid{grid-template-columns:1fr}
+    .walkin .msg{padding:52px 0 30px}
+    .board{margin-bottom:56px}
+    .qgrid{grid-template-columns:1fr}
+    .story .grid{grid-template-columns:1fr;gap:26px}
+    .hero .btn{width:100%;text-align:center}
+  }
+</style>
+</head>
+<body>
+
+<div class="pole"></div>
+
+<header class="hero">
+  <div class="wrap inner">
+    <span class="est">West Meade · Belle Meade · Nashville</span>
+    <h1>Just walk in.<br>We'll <span>take care</span><br>of you.</h1>
+    <p class="sub">A laid-back, old-school barbershop where a lot of the guys in the chairs have been coming for twenty years.</p>
+    <div class="actions">
+      <a class="btn" href="tel:+16153529894">Call the shop · 615-352-9894</a>
+      <span class="addr">600 Old Hickory Blvd, Ste 103</span>
+    </div>
+  </div>
+</header>
+
+<section class="walkin">
+  <div class="wrap grid">
+    <div class="msg">
+      <h2>No appointment.<br>No app. No fuss.</h2>
+      <p>Grab a seat, catch up on the conversation, and walk out with a clean cut. Here's when the chairs are open.</p>
+    </div>
+    <div class="board" aria-label="Shop hours">
+      <div class="lbl">Walk-in Hours</div>
+      <div class="row"><span class="d">Mon – Fri</span><span class="t">9:00 – 6:00</span></div>
+      <div class="row"><span class="d">Saturday</span><span class="t">8:00 – 4:00</span></div>
+      <div class="row closed"><span class="d">Sunday</span><span class="t">Closed</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="voices">
+  <div class="wrap">
+    <p class="kicker">From the regulars</p>
+    <h2>The kind of place people don't leave.</h2>
+    <div class="qgrid">
+      <div class="card wide">
+        <p>"I've been a repeat customer for over 20 years. Love the laid-back atmosphere, their faith, their humor, and their expertise."</p>
+        <cite>— Darrell Watson · Google review</cite>
+      </div>
+      <div class="card">
+        <p>"These guys are great. Good cut, reasonable prices and old-school atmosphere."</p>
+        <cite>— John Swygert · Google review</cite>
+      </div>
+      <div class="card">
+        <p>"Chad did an incredible job. He was able to comprehend exactly what I had envisioned and deliver it."</p>
+        <cite>— Neal Thomas · Google review</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="story">
+  <div class="wrap grid">
+    <div class="yrs">4.2★<span>104 reviews</span></div>
+    <div>
+      <p>Belle Meade Barber Shop is the anti-chain: fair prices, straight-razor neck cleanups, and barbers who know your name and your usual.</p>
+      <p>The only thing missing was a simple page online — somewhere to see the hours before you drive over. So we made you one. Walk in whenever you're ready.</p>
+    </div>
+  </div>
+</section>
+
+<section class="close">
+  <div class="wrap">
+    <h2>Fresh cut, old-school chair.</h2>
+    <p>Mon–Fri 9–6 · Sat 8–4 · Walk-ins welcome</p>
+    <a class="phone" href="tel:+16153529894">615-352-9894</a>
+  </div>
+</section>
+
+<div class="pole"></div>
+<footer>Belle Meade Barber Shop · 600 Old Hickory Blvd, Ste 103, Nashville, TN 37209</footer>
+
+</body>
+</html>

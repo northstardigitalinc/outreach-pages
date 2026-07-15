@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  Design Read: Warm, women-run East Nashville nail studio with a loyal following worth the
+  drive across town. Fresh modern-boutique language (East Nashville is indie/creative, not
+  mall-pink), leaning toward bright warm editorial — warm paper + a confident burnt-coral,
+  a characterful grotesque display (Syne) over the slop pink+lavender+Playfair default.
+  Signature: "worth the drive across town" as the hero thesis; techs named like a roster.
+  Skills: refero → taste (rejected the pink/Playfair default) → ui-ux-pro-max (nail/beauty)
+  → frontend-design (Syne, coral, warm paper) → design-system (tokens).
+-->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>East Nails & Spa — East Nashville's Dip Manicure Studio on Gallatin Ave</title>
+<meta name="description" content="The East Nashville nail studio people rearrange their schedules for. Dip manicures that last the longest, custom nail art, and brows by Terri. Book on Gallatin Ave.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f7f1e8;
+    --paper-2:#efe6d8;
+    --ink:#241f1b;
+    --coral:#df5334;
+    --coral-deep:#c4421f;
+    --plum:#5a2e3e;
+    --muted:#8a7d6e;
+    --line:#e2d6c4;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:'DM Sans',system-ui,sans-serif;
+    font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+  a{color:inherit}
+  .syne{font-family:'Syne',sans-serif;font-weight:800;letter-spacing:-.02em;line-height:.98;text-wrap:balance}
+
+  /* ---- HERO ---- */
+  .hero{padding:76px 0 66px;position:relative}
+  .tag{display:inline-flex;align-items:center;gap:9px;font-family:'Syne';font-weight:700;font-size:12px;
+    text-transform:uppercase;letter-spacing:.16em;color:var(--coral-deep);
+    background:#fff;border:1px solid var(--line);padding:8px 15px;border-radius:100px}
+  .tag::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--coral)}
+  .hero h1{font-family:'Syne';font-weight:800;font-size:clamp(2.9rem,9vw,6.6rem);margin:24px 0 0;line-height:.96}
+  .hero h1 em{font-style:italic;color:var(--coral)}
+  .hero .lede{max-width:38ch;margin:26px 0 0;font-size:clamp(1.08rem,2.4vw,1.36rem);color:#4c4239;text-wrap:pretty}
+  .hero .row{margin-top:38px;display:flex;flex-wrap:wrap;gap:16px 26px;align-items:center}
+  .btn{background:var(--ink);color:var(--paper);font-family:'Syne';font-weight:700;font-size:1.02rem;
+    padding:17px 30px;border-radius:100px;text-decoration:none;transition:background .2s,transform .2s;cursor:pointer;display:inline-block}
+  .btn:hover{background:var(--coral-deep);transform:translateY(-2px)}
+  .where{font-size:.92rem;color:var(--muted);max-width:22ch;line-height:1.5}
+
+  /* ---- SIGNATURE STRIP ---- */
+  .strip{background:var(--coral);color:var(--paper);overflow:hidden;padding:20px 0}
+  .strip .run{display:flex;gap:44px;white-space:nowrap;font-family:'Syne';font-weight:800;
+    font-size:clamp(1.1rem,2.6vw,1.6rem);letter-spacing:.01em;animation:slide 26s linear infinite}
+  .strip .run span::after{content:"·";margin-left:44px;opacity:.6}
+  @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @media(prefers-reduced-motion:reduce){.strip .run{animation:none}}
+
+  /* ---- SERVICES (what they're known for, not an icon grid) ---- */
+  .known{padding:88px 0 76px}
+  .known .kick{font-family:'Syne';font-weight:700;text-transform:uppercase;letter-spacing:.2em;font-size:12px;color:var(--coral-deep)}
+  .known h2{font-family:'Syne';font-weight:800;font-size:clamp(1.8rem,4.6vw,2.9rem);margin:12px 0 40px;max-width:20ch;line-height:1.02}
+  .list{display:grid;grid-template-columns:1fr 1fr;gap:0 60px}
+  .item{display:flex;justify-content:space-between;align-items:baseline;gap:20px;
+    padding:22px 0;border-bottom:1px solid var(--line)}
+  .item .t{font-family:'Syne';font-weight:700;font-size:1.2rem}
+  .item .d{color:var(--muted);font-size:.92rem;text-align:right;max-width:20ch}
+
+  /* ---- QUOTES ---- */
+  .love{background:var(--plum);color:var(--paper);padding:94px 0 84px}
+  .love .kick{font-family:'Syne';font-weight:700;text-transform:uppercase;letter-spacing:.2em;font-size:12px;color:#e79b7f}
+  .love h2{font-family:'Syne';font-weight:800;font-size:clamp(1.8rem,4.6vw,3rem);margin:12px 0 52px;max-width:22ch;line-height:1.03;color:#fbeee2}
+  .qwrap{display:grid;grid-template-columns:1fr 1fr;gap:34px}
+  figure{margin:0}
+  figure p{font-size:clamp(1.14rem,2.4vw,1.4rem);line-height:1.4;color:#faece0;text-wrap:pretty}
+  figure p::first-letter{color:#e79b7f}
+  figure figcaption{margin-top:18px;font-family:'Syne';font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.76rem;color:#c9a4ac}
+  .lead-q{grid-column:1/-1;border-left:3px solid var(--coral);padding-left:28px}
+  .lead-q p{font-size:clamp(1.4rem,3.2vw,2rem);line-height:1.32}
+
+  /* ---- ABOUT ---- */
+  .about{padding:90px 0}
+  .about .grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .about h3{font-family:'Syne';font-weight:800;font-size:clamp(2rem,5vw,3.2rem);line-height:1.02;max-width:14ch}
+  .about h3 em{font-style:italic;color:var(--coral)}
+  .about p{font-size:clamp(1.05rem,2.2vw,1.22rem);color:#4c4239;text-wrap:pretty}
+  .about p + p{margin-top:18px;font-size:1rem;color:#6b5f52}
+
+  /* ---- CTA ---- */
+  .close{background:var(--ink);color:var(--paper);text-align:center;padding:100px 0 112px}
+  .close h2{font-family:'Syne';font-weight:800;font-size:clamp(2.3rem,6.5vw,4.6rem);max-width:16ch;margin:0 auto 14px;line-height:1}
+  .close h2 em{font-style:italic;color:var(--coral)}
+  .close p{color:#b7ab9c;margin-bottom:32px;font-size:1.02rem}
+  .btn-lg{background:var(--coral);color:#fff;font-family:'Syne';font-weight:800;font-size:1.15rem;
+    padding:19px 40px;border-radius:100px;text-decoration:none;display:inline-block;transition:transform .2s,background .2s;cursor:pointer}
+  .btn-lg:hover{background:var(--coral-deep);transform:translateY(-2px)}
+  .close .hrs{margin-top:24px;font-size:.86rem;color:#8a7d6e;letter-spacing:.04em}
+  footer{background:var(--ink);color:#7a6e60;text-align:center;padding:26px;font-size:.82rem;border-top:1px solid rgba(255,255,255,.06)}
+
+  @media(max-width:760px){
+    .list{grid-template-columns:1fr}
+    .qwrap{grid-template-columns:1fr}
+    .about .grid{grid-template-columns:1fr;gap:30px}
+    .item .d{max-width:14ch}
+    .btn{width:100%;text-align:center}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="tag">East Nashville · Gallatin Ave</span>
+    <h1 class="syne">Worth the drive<br><em>across town.</em></h1>
+    <p class="lede">The nail studio East Nashville rearranges its schedule for — dip manicures that actually last, custom art, and a room full of women who are great at what they do.</p>
+    <div class="row">
+      <a class="btn" href="tel:+16158352612">Book a chair · 615-835-2612</a>
+      <span class="where">604 Gallatin Ave, Suite 108 · Tue–Sun</span>
+    </div>
+  </div>
+</header>
+
+<div class="strip" aria-hidden="true">
+  <div class="run">
+    <span>Dip manicures</span><span>Custom nail art</span><span>Gel-X & stiletto</span><span>Brows by Terri</span><span>Pedicures</span><span>Cat-eye & chrome</span>
+    <span>Dip manicures</span><span>Custom nail art</span><span>Gel-X & stiletto</span><span>Brows by Terri</span><span>Pedicures</span><span>Cat-eye & chrome</span>
+  </div>
+</div>
+
+<section class="known">
+  <div class="wrap">
+    <p class="kick">What we're known for</p>
+    <h2>The dip manicure that outlasts every other in town.</h2>
+    <div class="list">
+      <div class="item"><span class="t">Dip Manicures</span><span class="d">Our signature — reviewers say they last the longest</span></div>
+      <div class="item"><span class="t">Custom Nail Art</span><span class="d">Cat-eye, chrome, and trend designs</span></div>
+      <div class="item"><span class="t">Gel-X & Acrylic</span><span class="d">Stiletto sets and full acrylics</span></div>
+      <div class="item"><span class="t">Mani &amp; Pedi</span><span class="d">Traditional manicures and pedicures</span></div>
+      <div class="item"><span class="t">Brows by Terri</span><span class="d">"Second to none," per the regulars</span></div>
+      <div class="item"><span class="t">Ask for Hannah</span><span class="d">A tech worth requesting again</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="love">
+  <div class="wrap">
+    <p class="kick">The regulars</p>
+    <h2>People drive across Nashville to sit in these chairs.</h2>
+    <div class="qwrap">
+      <figure class="lead-q">
+        <p>"Always friendly, welcoming, and each person amazing at their job. Terri who does brows is second to none. I'll rearrange my schedule just so I'm able to go to East Nails!"</p>
+        <figcaption>— Google &amp; Yelp review</figcaption>
+      </figure>
+      <figure>
+        <p>"I live in West Nashville and it's well worth the drive to be with these women who do a super professional job."</p>
+        <figcaption>— Google review</figcaption>
+      </figure>
+      <figure>
+        <p>"The best in East Nashville without a doubt. My dip manicures have lasted the longest from here. Hannah is my tech now — I'll be requesting her."</p>
+        <figcaption>— Google review</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="about">
+  <div class="wrap grid">
+    <h3 class="syne">Seven years, <em>one</em> loyal room.</h3>
+    <div>
+      <p>Since 2019, East Nails &amp; Spa has built a following the hard way — 167 reviews, a 4.5-star average, and clients who plan their week around a standing appointment.</p>
+      <p>The one thing missing was a place online to show the work and book a time. So we built you this page. Everything else, you already earned.</p>
+    </div>
+  </div>
+</section>
+
+<section class="close">
+  <div class="wrap">
+    <h2 class="syne">Your table's <em>ready.</em></h2>
+    <p>Call ahead or walk in — East Nashville's chair is waiting.</p>
+    <a class="btn-lg" href="tel:+16158352612">615-835-2612</a>
+    <div class="hrs">Tue–Fri 10–7 · Sat 9–5 · Sun 12–6 · Closed Mon</div>
+  </div>
+</section>
+
+<footer>East Nails &amp; Spa · 604 Gallatin Ave, Suite 108, Nashville, TN 37206</footer>
+
+</body>
+</html>

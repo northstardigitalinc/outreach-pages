@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chey Threlkeld RMT — Registered Massage Therapist, Kitsilano Vancouver BC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream: #F8F4EE; --cream-deep: #EDE7DA; --forest: #243328; --forest-mid: #3A5240;
+      --sage: #7B9E87; --sage-light: #A8C4B0; --sage-pale: #E2EDE5;
+      --gold: #C4A47C; --gold-light: #E8D5B7; --charcoal: #2B2B2B;
+      --muted: #6B7A6E; --border: #D6CEC2; --white: #FFFFFF;
+    }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: 'Raleway', sans-serif; background: var(--cream); color: var(--charcoal); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+
+    .hero { min-height: 100svh; background: var(--forest); display: flex; flex-direction: column; justify-content: flex-end; padding: clamp(40px,8vw,80px) clamp(24px,6vw,72px); position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 55% at 75% 25%, rgba(123,158,135,0.2) 0%, transparent 65%), radial-gradient(ellipse 45% 70% at 15% 85%, rgba(196,164,124,0.1) 0%, transparent 60%); pointer-events: none; }
+    .hero-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sage-light); margin-bottom: 28px; opacity: 0; animation: fadeUp 0.8s ease 0.1s forwards; }
+    .hero-name { font-family: 'Lora', serif; font-size: clamp(40px,7.5vw,82px); font-weight: 700; line-height: 1.05; color: var(--white); margin-bottom: 24px; opacity: 0; animation: fadeUp 0.8s ease 0.25s forwards; }
+    .hero-name em { font-style: italic; font-weight: 400; color: var(--gold-light); }
+    .hero-headline { font-size: clamp(16px,2.4vw,21px); font-weight: 300; color: rgba(255,255,255,0.68); max-width: 540px; margin-bottom: 48px; opacity: 0; animation: fadeUp 0.8s ease 0.4s forwards; }
+    .hero-cta { display: inline-flex; align-items: center; gap: 16px; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.8s ease 0.55s forwards; }
+    .btn-primary { background: var(--sage); color: var(--white); font-family: 'Raleway', sans-serif; font-weight: 600; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; padding: 16px 36px; border-radius: 2px; transition: background 0.2s, transform 0.15s; }
+    .btn-primary:hover { background: var(--forest-mid); transform: translateY(-1px); }
+    .hero-phone-link { color: rgba(255,255,255,0.48); font-size: 13px; text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; }
+    .hero-phone-link:hover { color: var(--gold-light); }
+    .hero-scroll { position: absolute; bottom: 32px; right: clamp(24px,6vw,72px); display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: 0; animation: fadeIn 1s ease 1.2s forwards; }
+    .hero-scroll span { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.28); writing-mode: vertical-rl; }
+    .scroll-line { width: 1px; height: 48px; background: linear-gradient(to bottom, rgba(255,255,255,0.38), transparent); animation: scrollPulse 2s ease-in-out 1.5s infinite; }
+
+    .trust-bar { background: var(--white); border-bottom: 1px solid var(--border); padding: 28px clamp(24px,6vw,72px); display: flex; flex-wrap: wrap; gap: 28px 48px; align-items: center; }
+    .trust-item { display: flex; align-items: center; gap: 12px; }
+    .trust-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--sage); flex-shrink: 0; }
+    .trust-text { font-size: 13px; font-weight: 500; color: var(--muted); letter-spacing: 0.02em; }
+    .trust-text strong { color: var(--forest); font-weight: 600; }
+
+    /* PHILOSOPHY / REPUTATION — no verbatim reviews, so we lead with her clinical approach */
+    .reputation { padding: clamp(64px,10vw,120px) clamp(24px,6vw,72px); background: var(--cream); }
+    .section-label { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sage); margin-bottom: 48px; }
+    .reputation-grid { display: grid; grid-template-columns: 1fr; gap: 32px; max-width: 900px; }
+    .rep-card { padding: 40px; background: var(--white); border-left: 3px solid var(--sage); opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .rep-card.visible { opacity: 1; transform: translateY(0); }
+    .rep-stat { font-family: 'Lora', serif; font-size: clamp(36px,6vw,60px); font-weight: 700; color: var(--forest); line-height: 1; margin-bottom: 12px; }
+    .rep-stat span { font-size: clamp(16px,2vw,22px); font-weight: 400; font-style: italic; color: var(--sage); }
+    .rep-label { font-size: 14px; line-height: 1.7; color: var(--muted); }
+    .rep-quote { font-family: 'Lora', serif; font-size: clamp(17px,2.2vw,21px); font-style: italic; color: var(--forest); line-height: 1.65; position: relative; padding-top: 16px; }
+    .rep-quote::before { content: '\201C'; font-size: 64px; color: var(--sage-pale); position: absolute; top: -8px; left: -4px; line-height: 1; font-style: italic; font-family: 'Lora', serif; }
+    .rep-subtext { margin-top: 16px; font-size: 13px; color: var(--muted); font-style: normal; font-family: 'Raleway', sans-serif; }
+
+    .services { background: var(--sage-pale); padding: clamp(64px,10vw,120px) clamp(24px,6vw,72px); }
+    .services-header { max-width: 560px; margin-bottom: 56px; }
+    .services-header h2 { font-family: 'Lora', serif; font-size: clamp(28px,4vw,40px); font-weight: 600; line-height: 1.25; color: var(--forest); margin-top: 16px; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2px; }
+    .service-item { background: var(--white); padding: 36px 32px; transition: background 0.2s; }
+    .service-item:hover { background: var(--cream); }
+    .service-name { font-family: 'Lora', serif; font-size: 18px; font-weight: 600; color: var(--forest); margin-bottom: 12px; }
+    .service-desc { font-size: 14px; line-height: 1.7; color: var(--muted); }
+    .service-duration { display: inline-block; margin-top: 16px; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sage); border: 1px solid var(--sage-light); padding: 4px 10px; border-radius: 2px; }
+
+    .about { padding: clamp(64px,10vw,120px) clamp(24px,6vw,72px); background: var(--white); display: grid; grid-template-columns: 1fr; gap: 48px; }
+    .about h2 { font-family: 'Lora', serif; font-size: clamp(28px,4vw,40px); font-weight: 600; color: var(--forest); line-height: 1.25; margin: 16px 0 24px; }
+    .about p { font-size: 15px; line-height: 1.8; color: var(--muted); max-width: 540px; margin-bottom: 16px; }
+    .credential-list { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 10px; }
+    .credential-badge { background: var(--sage-pale); color: var(--forest-mid); font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 14px; border-radius: 2px; }
+    .about-highlight { padding: 40px; background: var(--cream); border-left: 3px solid var(--gold); }
+    .about-highlight p { font-family: 'Lora', serif; font-size: clamp(16px,2vw,20px); font-style: italic; color: var(--forest); line-height: 1.65; margin-bottom: 0; max-width: 100%; }
+    .about-highlight .hl-label { margin-top: 16px; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); font-style: normal; font-family: 'Raleway', sans-serif; }
+
+    .booking { background: var(--forest); padding: clamp(64px,10vw,120px) clamp(24px,6vw,72px); text-align: center; position: relative; overflow: hidden; }
+    .booking::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(123,158,135,0.15) 0%, transparent 70%); pointer-events: none; }
+    .booking-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sage-light); margin-bottom: 20px; }
+    .booking h2 { font-family: 'Lora', serif; font-size: clamp(28px,5vw,50px); font-weight: 600; color: var(--white); line-height: 1.2; margin-bottom: 16px; max-width: 540px; margin-left: auto; margin-right: auto; }
+    .booking h2 em { font-style: italic; color: var(--gold-light); }
+    .booking-sub { color: rgba(255,255,255,0.48); font-size: 15px; margin-bottom: 48px; }
+    .booking-actions { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; align-items: center; }
+    .btn-booking { background: var(--sage); color: var(--white); font-family: 'Raleway', sans-serif; font-weight: 600; font-size: 15px; letter-spacing: 0.04em; text-decoration: none; padding: 18px 44px; border-radius: 2px; transition: background 0.2s, transform 0.15s; display: inline-block; }
+    .btn-booking:hover { background: var(--forest-mid); transform: translateY(-2px); }
+    .btn-email { color: rgba(255,255,255,0.58); font-size: 14px; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
+    .btn-email:hover { color: var(--gold-light); border-color: var(--gold-light); }
+
+    .footer { background: var(--forest); border-top: 1px solid rgba(255,255,255,0.07); padding: 28px clamp(24px,6vw,72px); display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: center; }
+    .footer-name { font-family: 'Lora', serif; font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.52); }
+    .footer-city { font-size: 12px; color: rgba(255,255,255,0.26); letter-spacing: 0.06em; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes scrollPulse { 0%,100%{ opacity:.4; } 50%{ opacity:.9; } }
+
+    @media (min-width: 768px) {
+      .reputation-grid { grid-template-columns: 1fr 1fr; }
+      .about { grid-template-columns: 1fr 1fr; align-items: start; }
+    }
+    @media (max-width: 480px) {
+      .rep-card, .service-item, .about-highlight { padding: 28px 24px; }
+      .booking-actions { flex-direction: column; }
+      .btn-booking { width: 100%; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-tag">Registered Massage Therapist · Kitsilano, Vancouver BC</div>
+    <h1 class="hero-name">Chey Threlkeld<br><em>RMT</em></h1>
+    <p class="hero-headline">Prenatal care, athlete recovery, everyday tension — pressure set to your comfort, every time. Accepting new clients in Kitsilano.</p>
+    <div class="hero-cta">
+      <a href="tel:2509441044" class="btn-primary">Book a Session</a>
+      <a href="tel:2509441044" class="hero-phone-link">250-944-1044</a>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <div class="trust-bar">
+    <div class="trust-item"><div class="trust-dot"></div><div class="trust-text"><strong>8 Years</strong> in Practice</div></div>
+    <div class="trust-item"><div class="trust-dot"></div><div class="trust-text"><strong>WCCMT</strong> Graduate, Class of 2018</div></div>
+    <div class="trust-item"><div class="trust-dot"></div><div class="trust-text">Practicing in <strong>Kitsilano</strong>, Vancouver</div></div>
+    <div class="trust-item"><div class="trust-dot"></div><div class="trust-text"><strong>Insurance</strong> Receipts Available</div></div>
+  </div>
+
+  <section class="reputation">
+    <div class="section-label">Reputation &amp; approach</div>
+    <div class="reputation-grid">
+      <div class="rep-card">
+        <div class="rep-stat">100% <span>recommend</span></div>
+        <p class="rep-label">Every reviewed client recommends Chey. Six reviews, zero reservations. Built purely on the quality of her sessions.</p>
+      </div>
+      <div class="rep-card">
+        <div class="rep-quote">
+          Her approach starts with a conversation — she wants to understand what you're feeling and what pressure feels right before she begins.
+          <div class="rep-subtext">What sets Chey apart, from her own practice philosophy</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services">
+    <div class="services-header">
+      <div class="section-label">Treatments offered</div>
+      <h2>Broad range. One consistent standard.</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-item">
+        <div class="service-name">Swedish &amp; Trigger Point</div>
+        <p class="service-desc">Full-body relaxation or targeted work on chronic knots and tension patterns. Pressure is always calibrated to your comfort — not a preset level.</p>
+        <span class="service-duration">60 · 90 min</span>
+      </div>
+      <div class="service-item">
+        <div class="service-name">Prenatal &amp; Infant Massage</div>
+        <p class="service-desc">Specialized care through all trimesters and for newborns and infants. Chey has extensive experience with pregnancy-related pain and postnatal recovery.</p>
+        <span class="service-duration">45 · 60 min</span>
+      </div>
+      <div class="service-item">
+        <div class="service-name">Athletic &amp; Injury Recovery</div>
+        <p class="service-desc">Myofascial release and active/passive modalities for athletes managing strain, overuse, or return-to-sport rehabilitation. Clinical, targeted, effective.</p>
+        <span class="service-duration">60 · 90 min</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" style="max-width:100%;">
+    <div>
+      <div class="section-label">About</div>
+      <h2>Cheyenne (Chey) Threlkeld, RMT</h2>
+      <p>Chey graduated from the West Coast College of Massage Therapy in 2018 and has spent the years since building a Kitsilano practice grounded in honest, individualized care. She sees a wide range of clients — pregnant women, athletes, infants, and anyone who needs genuine relief from tension that's accumulated over time.</p>
+      <p>Her clinical reasoning is strong, but what clients notice first is how much she communicates. Before anything else, she wants to know what you're experiencing, what hasn't worked before, and what pressure feels right to you. That approach is why 100% of her reviewed clients recommend her.</p>
+      <div class="credential-list">
+        <span class="credential-badge">RMT Certified</span>
+        <span class="credential-badge">WCCMT Graduate</span>
+        <span class="credential-badge">Prenatal Care</span>
+        <span class="credential-badge">Infant Massage</span>
+        <span class="credential-badge">Athletic Recovery</span>
+      </div>
+    </div>
+    <div style="padding-top: 48px;">
+      <div class="about-highlight">
+        <p>Grounded in clinical reasoning with a strong emphasis on patient comfort, clear communication, and pressure tailored to individual tolerance.</p>
+        <div class="hl-label">Chey's practice philosophy</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="booking">
+    <div class="booking-eyebrow">Accepting new clients</div>
+    <h2>Whether it's your first session<br><em>or your twentieth.</em></h2>
+    <p class="booking-sub">Comfortable, judgment-free care in Kitsilano. Call or email to get started.</p>
+    <div class="booking-actions">
+      <a href="tel:2509441044" class="btn-booking">Call to Book — 250-944-1044</a>
+      <a href="mailto:Cheytrmt@gmail.com" class="btn-email">or email Cheytrmt@gmail.com</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-name">Chey Threlkeld RMT</div>
+    <div class="footer-city">Kitsilano, Vancouver BC</div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((el, i) => {
+        if (el.isIntersecting) { setTimeout(() => el.target.classList.add('visible'), i * 120); observer.unobserve(el.target); }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.rep-card').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

@@ -18,21 +18,23 @@
     html { scroll-behavior: smooth; font-size: 16px; }
     body { font-family: 'Raleway', sans-serif; background: var(--cream); color: var(--charcoal); line-height: 1.7; -webkit-font-smoothing: antialiased; }
 
+    /* HERO */
     .hero { min-height: 100svh; background: var(--forest); display: grid; grid-template-columns: 55fr 45fr; position: relative; overflow: hidden; }
     .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 55% 65% at 20% 65%, rgba(123,158,135,0.16) 0%, transparent 65%); pointer-events: none; z-index: 1; }
     .hero-content { display: flex; flex-direction: column; justify-content: flex-end; padding: clamp(40px,8vw,80px) clamp(24px,5vw,64px); position: relative; z-index: 2; }
     .hero-image-col { position: relative; overflow: hidden; }
     .hero-image-col img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block; opacity: 0.8; }
     .hero-image-col::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, var(--forest) 0%, rgba(36,51,40,0.3) 42%, transparent 100%); z-index: 1; pointer-events: none; }
-    .location-pill { display: inline-flex; align-items: center; gap: 7px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); color: rgba(255,255,255,0.82); font-size: 12px; font-weight: 500; letter-spacing: 0.05em; padding: 8px 16px; border-radius: 100px; text-decoration: none; margin-bottom: 24px; width: fit-content; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); transition: background 0.2s, border-color 0.2s; opacity: 0; animation: fadeUp 0.7s ease 0.05s forwards; }
+
+    .location-pill { display: inline-flex; align-items: center; gap: 7px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); color: rgba(255,255,255,0.82); font-size: 12px; font-weight: 500; letter-spacing: 0.05em; padding: 10px 16px; border-radius: 100px; text-decoration: none; margin-bottom: 24px; width: fit-content; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); transition: background 0.2s, border-color 0.2s; opacity: 0; animation: fadeUp 0.7s ease 0.05s forwards; }
     .location-pill:hover { background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.3); }
     .location-pill svg { width: 13px; height: 13px; flex-shrink: 0; }
     .hero-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sage-light); margin-bottom: 24px; opacity: 0; animation: fadeUp 0.8s ease 0.15s forwards; }
-    .hero-name { font-family: 'Lora', serif; font-size: clamp(38px,6.5vw,76px); font-weight: 700; line-height: 1.05; color: var(--white); margin-bottom: 20px; opacity: 0; animation: fadeUp 0.8s ease 0.28s forwards; }
+    .hero-name { font-family: 'Lora', serif; font-size: clamp(36px,6.5vw,76px); font-weight: 700; line-height: 1.05; color: var(--white); margin-bottom: 20px; opacity: 0; animation: fadeUp 0.8s ease 0.28s forwards; }
     .hero-name em { font-style: italic; font-weight: 400; color: var(--gold-light); }
     .hero-headline { font-size: clamp(15px,2vw,19px); font-weight: 300; color: rgba(255,255,255,0.68); max-width: 460px; margin-bottom: 40px; opacity: 0; animation: fadeUp 0.8s ease 0.4s forwards; }
     .hero-cta { display: inline-flex; align-items: center; gap: 16px; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.8s ease 0.52s forwards; }
-    .btn-primary { background: var(--sage); color: var(--white); font-family: 'Raleway', sans-serif; font-weight: 600; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; padding: 15px 34px; border-radius: 2px; transition: background 0.2s, transform 0.15s; }
+    .btn-primary { background: var(--sage); color: var(--white); font-family: 'Raleway', sans-serif; font-weight: 600; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; padding: 16px 34px; min-height: 52px; display: inline-flex; align-items: center; justify-content: center; border-radius: 2px; transition: background 0.2s, transform 0.15s; }
     .btn-primary:hover { background: var(--forest-mid); transform: translateY(-1px); }
     .hero-phone-link { color: rgba(255,255,255,0.48); font-size: 13px; text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; }
     .hero-phone-link:hover { color: var(--gold-light); }
@@ -40,14 +42,16 @@
     .hero-scroll span { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.28); }
     .scroll-line { width: 32px; height: 1px; background: linear-gradient(to right, rgba(255,255,255,0.4), transparent); animation: scrollPulseH 2s ease-in-out 1.5s infinite; }
 
-    .trust-bar { background: var(--white); border-bottom: 1px solid var(--border); padding: 26px clamp(24px,6vw,72px); display: flex; flex-wrap: wrap; gap: 24px 44px; align-items: center; }
+    /* TRUST BAR */
+    .trust-bar { background: var(--white); border-bottom: 1px solid var(--border); padding: 22px clamp(24px,6vw,72px); display: flex; flex-wrap: wrap; gap: 20px 44px; align-items: center; }
     .trust-item { display: flex; align-items: center; gap: 12px; }
     .trust-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--sage); flex-shrink: 0; }
-    .trust-text { font-size: 13px; font-weight: 500; color: var(--muted); letter-spacing: 0.02em; }
+    .trust-text { font-size: 13px; font-weight: 500; color: var(--muted); letter-spacing: 0.02em; white-space: nowrap; }
     .trust-text strong { color: var(--forest); font-weight: 600; }
 
     .section-label { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sage); margin-bottom: 44px; }
 
+    /* REPUTATION */
     .reputation { padding: clamp(60px,9vw,112px) clamp(24px,6vw,72px); background: var(--cream); }
     .rep-grid { display: grid; grid-template-columns: 1fr; gap: 28px; max-width: 900px; }
     .rep-card { padding: 38px; background: var(--white); border-left: 3px solid var(--sage); opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
@@ -59,6 +63,7 @@
     .rep-quote::before { content: '\201C'; font-size: 60px; color: var(--sage-pale); position: absolute; top: -8px; left: -4px; line-height: 1; font-style: italic; font-family: 'Lora', serif; }
     .rep-sub { margin-top: 14px; font-size: 12px; color: var(--muted); font-family: 'Raleway', sans-serif; font-style: normal; }
 
+    /* SERVICES */
     .services { background: var(--sage-pale); padding: clamp(60px,9vw,112px) clamp(24px,6vw,72px); }
     .services-header { max-width: 540px; margin-bottom: 52px; }
     .services-header h2 { font-family: 'Lora', serif; font-size: clamp(26px,3.5vw,38px); font-weight: 600; line-height: 1.25; color: var(--forest); margin-top: 16px; }
@@ -69,6 +74,7 @@
     .service-desc { font-size: 13px; line-height: 1.7; color: var(--muted); }
     .service-duration { display: inline-block; margin-top: 14px; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sage); border: 1px solid var(--sage-light); padding: 4px 10px; border-radius: 2px; }
 
+    /* ABOUT */
     .about { padding: clamp(60px,9vw,112px) clamp(24px,6vw,72px); background: var(--white); display: grid; grid-template-columns: 1fr; gap: 44px; }
     .about h2 { font-family: 'Lora', serif; font-size: clamp(26px,3.5vw,38px); font-weight: 600; color: var(--forest); line-height: 1.25; margin: 14px 0 22px; }
     .about p { font-size: 15px; line-height: 1.8; color: var(--muted); max-width: 520px; margin-bottom: 14px; }
@@ -78,6 +84,7 @@
     .about-highlight p { font-family: 'Lora', serif; font-size: clamp(16px,2vw,20px); font-style: italic; color: var(--forest); line-height: 1.65; margin-bottom: 0; max-width: 100%; }
     .about-highlight .hl-label { margin-top: 16px; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); font-style: normal; font-family: 'Raleway', sans-serif; }
 
+    /* REVIEWS */
     .reviews-floor { background: var(--forest); padding: clamp(60px,9vw,112px) clamp(24px,6vw,72px); }
     .reviews-floor .section-label { color: var(--sage-light); }
     .reviews-floor-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2px; }
@@ -88,6 +95,7 @@
     .review-tile-text { font-family: 'Lora', serif; font-size: 15px; font-style: italic; color: rgba(255,255,255,0.8); line-height: 1.65; }
     .review-tile-sub { margin-top: 16px; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sage-light); }
 
+    /* BOOKING */
     .booking { background: var(--forest); border-top: 1px solid rgba(255,255,255,0.07); padding: clamp(60px,9vw,112px) clamp(24px,6vw,72px); text-align: center; position: relative; overflow: hidden; }
     .booking::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(123,158,135,0.13) 0%, transparent 70%); pointer-events: none; }
     .booking-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sage-light); margin-bottom: 18px; }
@@ -95,28 +103,94 @@
     .booking h2 em { font-style: italic; color: var(--gold-light); }
     .booking-sub { color: rgba(255,255,255,0.46); font-size: 14px; margin-bottom: 44px; }
     .booking-actions { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; align-items: center; }
-    .btn-booking { background: var(--sage); color: var(--white); font-family: 'Raleway', sans-serif; font-weight: 600; font-size: 14px; letter-spacing: 0.04em; text-decoration: none; padding: 17px 42px; border-radius: 2px; transition: background 0.2s, transform 0.15s; display: inline-block; }
+    .btn-booking { background: var(--sage); color: var(--white); font-family: 'Raleway', sans-serif; font-weight: 600; font-size: 14px; letter-spacing: 0.04em; text-decoration: none; padding: 18px 42px; min-height: 56px; display: inline-flex; align-items: center; border-radius: 2px; transition: background 0.2s, transform 0.15s; }
     .btn-booking:hover { background: var(--forest-mid); transform: translateY(-2px); }
-    .btn-email { color: rgba(255,255,255,0.55); font-size: 13px; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
+    .btn-email { color: rgba(255,255,255,0.65); font-size: 13px; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 2px; min-height: 44px; display: inline-flex; align-items: center; transition: color 0.2s, border-color 0.2s; }
     .btn-email:hover { color: var(--gold-light); border-color: var(--gold-light); }
 
+    /* FOOTER */
     .footer { background: #1a2820; padding: 24px clamp(24px,6vw,72px); display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; align-items: center; }
     .footer-name { font-family: 'Lora', serif; font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.48); }
     .footer-city { font-size: 12px; color: rgba(255,255,255,0.24); letter-spacing: 0.06em; }
 
+    /* MOBILE STICKY CTA */
+    .mobile-cta-bar { display: none; }
+
+    /* ANIMATIONS */
     @keyframes fadeUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     @keyframes scrollPulseH { 0%,100%{ opacity:.4; } 50%{ opacity:.8; } }
 
-    @media (min-width: 768px) { .rep-grid { grid-template-columns: 1fr 1fr; } .about { grid-template-columns: 1fr 1fr; align-items: start; } }
-    @media (max-width: 900px) {
+    /* DESKTOP */
+    @media (min-width: 768px) {
+      .rep-grid { grid-template-columns: 1fr 1fr; }
+      .about { grid-template-columns: 1fr 1fr; align-items: start; }
+    }
+
+    /* TABLET */
+    @media (max-width: 900px) and (min-width: 769px) {
       .hero { grid-template-columns: 1fr; }
       .hero-image-col { order: -1; height: 44vw; min-height: 200px; max-height: 320px; }
       .hero-image-col::before { background: linear-gradient(to bottom, var(--forest) 0%, rgba(36,51,40,0.1) 55%, transparent 100%); }
       .hero-content { justify-content: flex-start; padding-top: 32px; }
-      .hero-scroll { margin-top: 24px; }
     }
-    @media (max-width: 480px) { .service-item, .rep-card, .about-highlight, .review-tile { padding: 26px 22px; } .booking-actions { flex-direction: column; } .btn-booking { width: 100%; text-align: center; } }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      body { padding-bottom: 74px; }
+
+      .hero { grid-template-columns: 1fr; min-height: 100svh; }
+      .hero-image-col { position: absolute; inset: 0; height: 100% !important; max-height: none !important; order: 0; }
+      .hero-image-col img { height: 100%; opacity: 0.4; }
+      .hero-image-col::before { background: linear-gradient(to bottom, rgba(36,51,40,0.4) 0%, var(--forest) 58%); }
+      .hero-content { justify-content: flex-end; min-height: 100svh; padding-bottom: 40px; z-index: 2; position: relative; }
+      .hero-scroll { display: none; }
+      .hero-headline { font-size: 15px; }
+      .hero-cta { flex-direction: column; align-items: flex-start; gap: 12px; }
+      .btn-primary { width: 100%; justify-content: center; font-size: 15px; padding: 18px 24px; }
+      .hero-phone-link { font-size: 14px; }
+
+      .trust-bar { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; gap: 0 28px; padding-right: 32px; scrollbar-width: none; }
+      .trust-bar::-webkit-scrollbar { display: none; }
+      .trust-item { flex-shrink: 0; }
+
+      .services-grid { grid-template-columns: 1fr; }
+      .reviews-floor-grid { grid-template-columns: 1fr; }
+
+      .booking-actions { flex-direction: column; align-items: stretch; gap: 12px; }
+      .btn-booking { width: 100%; justify-content: center; padding: 20px 24px; font-size: 15px; }
+      .btn-email { justify-content: center; font-size: 14px; border-bottom: none; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-radius: 2px; padding: 16px 24px; min-height: 52px; }
+
+      .service-item, .rep-card, .about-highlight, .review-tile { padding: 28px 22px; }
+
+      .mobile-cta-bar {
+        display: flex;
+        position: fixed;
+        bottom: 0; left: 0; right: 0;
+        background: var(--forest);
+        border-top: 1px solid rgba(255,255,255,0.1);
+        padding: 12px 16px;
+        padding-bottom: calc(12px + env(safe-area-inset-bottom));
+        z-index: 200;
+        gap: 10px;
+        align-items: center;
+      }
+      .mobile-cta-call {
+        flex: 1; background: var(--sage); color: var(--white); text-align: center;
+        padding: 14px 16px; font-family: 'Raleway', sans-serif; font-weight: 600;
+        font-size: 14px; letter-spacing: 0.05em; text-transform: uppercase;
+        text-decoration: none; border-radius: 2px; min-height: 48px;
+        display: flex; align-items: center; justify-content: center;
+      }
+      .mobile-cta-email {
+        background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18);
+        color: rgba(255,255,255,0.8); text-align: center; padding: 14px 14px;
+        font-family: 'Raleway', sans-serif; font-weight: 600; font-size: 12px;
+        letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none;
+        border-radius: 2px; min-height: 48px; display: flex; align-items: center;
+        justify-content: center; white-space: nowrap;
+      }
+    }
   </style>
 </head>
 <body>
@@ -129,15 +203,15 @@
       </a>
       <div class="hero-tag">Registered Massage Therapist</div>
       <h1 class="hero-name">Chey Threlkeld<br><em>RMT</em></h1>
-      <p class="hero-headline">Prenatal care, athlete recovery, everyday tension — pressure set to your comfort, every time. Accepting new clients in Kitsilano.</p>
+      <p class="hero-headline">Prenatal care, athlete recovery, everyday tension. Pressure set to your comfort, every time. Accepting new clients in Kitsilano.</p>
       <div class="hero-cta">
-        <a href="tel:2509441044" class="btn-primary">Book a Session</a>
+        <a href="tel:2509441044" class="btn-primary">Call to Book</a>
         <a href="tel:2509441044" class="hero-phone-link">250-944-1044</a>
       </div>
       <div class="hero-scroll"><div class="scroll-line"></div><span>Scroll</span></div>
     </div>
     <div class="hero-image-col">
-      <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1400&q=82" alt="Professional massage therapy hands">
+      <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1400&q=82" alt="Gentle professional massage therapy session">
     </div>
   </section>
 
@@ -153,10 +227,10 @@
     <div class="rep-grid">
       <div class="rep-card">
         <div class="rep-stat">100% <span>recommend</span></div>
-        <p class="rep-label">Every reviewed client recommends Chey. Six reviews, zero reservations — built purely on the quality of her sessions.</p>
+        <p class="rep-label">Every reviewed client recommends Chey. Six reviews, zero reservations, built purely on the quality of her sessions.</p>
       </div>
       <div class="rep-card">
-        <div class="rep-quote">Her approach starts with a conversation — she wants to understand what you're feeling and what pressure feels right before she begins.
+        <div class="rep-quote">Her approach starts with a conversation. She wants to understand what you're feeling and what pressure feels right before she begins.
           <div class="rep-sub">Chey's practice philosophy</div>
         </div>
       </div>
@@ -171,7 +245,7 @@
     <div class="services-grid">
       <div class="service-item">
         <div class="service-name">Swedish &amp; Trigger Point</div>
-        <p class="service-desc">Full-body relaxation or targeted work on chronic knots and tension. Pressure is always calibrated to your comfort — not a preset level.</p>
+        <p class="service-desc">Full-body relaxation or targeted work on chronic knots and tension. Pressure is always calibrated to your comfort, not a preset level.</p>
         <span class="service-duration">60 · 90 min</span>
       </div>
       <div class="service-item">
@@ -191,7 +265,7 @@
     <div>
       <div class="section-label">About</div>
       <h2>Cheyenne (Chey) Threlkeld, RMT</h2>
-      <p>Chey graduated from the West Coast College of Massage Therapy in 2018 and has spent the years since building a Kitsilano practice grounded in honest, individualized care. She sees a wide range of clients — pregnant women, athletes, infants, and anyone who needs genuine relief from tension that's accumulated over time.</p>
+      <p>Chey graduated from the West Coast College of Massage Therapy in 2018 and has spent the years since building a Kitsilano practice grounded in honest, individualized care. She sees a wide range of clients — pregnant women, athletes, infants, and anyone who needs genuine relief from tension.</p>
       <p>Her clinical reasoning is strong, but what clients notice first is how much she communicates. Before anything else, she wants to know what you're experiencing, what hasn't worked before, and what pressure feels right to you.</p>
       <div class="credential-list">
         <span class="credential-badge">RMT Certified</span>
@@ -214,15 +288,15 @@
     <div class="reviews-floor-grid">
       <div class="review-tile">
         <div class="review-stat-big">100% <span>recommend</span></div>
-        <p class="review-stat-label">Every single reviewed client recommends Chey — 6 out of 6 on Facebook.</p>
+        <p class="review-stat-label">Every single reviewed client recommends Chey. 6 out of 6 on Facebook.</p>
       </div>
       <div class="review-tile">
         <p class="review-tile-text">She takes the time to understand what you need before she starts. Pressure is exactly right. One of the best RMTs I've seen in Vancouver.</p>
-        <div class="review-tile-sub">— Facebook reviewer</div>
+        <div class="review-tile-sub">Facebook reviewer</div>
       </div>
       <div class="review-tile">
-        <p class="review-tile-text">Finally found someone who actually listens. Chey adjusts everything to how you're feeling that day — not a one-size approach at all.</p>
-        <div class="review-tile-sub">— Facebook reviewer</div>
+        <p class="review-tile-text">Finally found someone who actually listens. Chey adjusts everything to how you're feeling that day. Not a one-size approach at all.</p>
+        <div class="review-tile-sub">Facebook reviewer</div>
       </div>
     </div>
   </section>
@@ -232,8 +306,8 @@
     <h2>Whether it's your first session<br><em>or your twentieth.</em></h2>
     <p class="booking-sub">Comfortable, judgment-free care in Kitsilano. Call or email to get started.</p>
     <div class="booking-actions">
-      <a href="tel:2509441044" class="btn-booking">Call to Book — 250-944-1044</a>
-      <a href="mailto:Cheytrmt@gmail.com" class="btn-email">or email Cheytrmt@gmail.com</a>
+      <a href="tel:2509441044" class="btn-booking">Call to Book &mdash; 250-944-1044</a>
+      <a href="mailto:Cheytrmt@gmail.com" class="btn-email">Email Cheytrmt@gmail.com</a>
     </div>
   </section>
 
@@ -241,6 +315,11 @@
     <div class="footer-name">Chey Threlkeld RMT</div>
     <div class="footer-city">Kitsilano, Vancouver BC</div>
   </footer>
+
+  <div class="mobile-cta-bar">
+    <a href="tel:2509441044" class="mobile-cta-call">Call to Book</a>
+    <a href="mailto:Cheytrmt@gmail.com" class="mobile-cta-email">Email</a>
+  </div>
 
   <script>
     const obs = new IntersectionObserver((entries) => {

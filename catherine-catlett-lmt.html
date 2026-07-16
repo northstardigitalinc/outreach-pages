@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<!--
+  SHARED BAJRANG MEDICAL TEMPLATE — Massage Therapy (LMT), Stark County OH batch.
+  One base template, personalized per business. Structure:
+  sticky mobile bar · split hero · trust bar · signature stat · proof (real reviews OR credentials)
+  · services grid · about + badges · dark reviews/approach floor · booking CTA · footer.
+  Fonts: Lora + Raleway. All CTAs tel:/mailto:. No nav, no FAQ, no invented testimonials.
+  Business: Catherine Catlett, ATC, LMT | Owner: Catherine Catlett | Canton, OH | catherinecatlettlmt@gmail.com | 330-353-9212
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Catherine Catlett, ATC, LMT — Massage with a sports-medicine mind | Canton, OH</title>
+<meta name="description" content="Catherine Catlett, ATC, LMT, sports &amp; clinical massage in Canton, OH. A Certified Athletic Trainer and Licensed Massage Therapist in one chair — clinical, hands-on, and tailored to how your body actually moves.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#F6F1E9; --paper:#FBF8F2; --ink:#20302B; --ink-soft:#3C4B45;
+  --forest:#16241F; --forest-2:#1E322B; --sage:#5E8A78; --sage-deep:#3F6B5A;
+  --gold:#C08A4B; --line:rgba(32,48,43,.14); --line-d:rgba(255,255,255,.14);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Raleway',system-ui,sans-serif;color:var(--ink);background:var(--paper);
+  line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,.serif{font-family:'Lora',Georgia,serif;font-weight:600;line-height:1.08;letter-spacing:-.01em}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 28px}
+.eyebrow{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;font-weight:600;color:var(--sage-deep)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:52px;
+  padding:0 30px;border-radius:999px;font-weight:600;font-size:1rem;cursor:pointer;
+  transition:transform .2s ease,box-shadow .2s ease,background .2s ease;border:1.5px solid transparent}
+.btn-primary{background:var(--forest);color:#F6F1E9;box-shadow:0 10px 28px rgba(22,36,31,.22)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 38px rgba(22,36,31,.30)}
+.btn-ghost{background:transparent;border-color:var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--forest);transform:translateY(-2px)}
+.btn-light{background:#F6F1E9;color:var(--forest)}
+.btn-light:hover{transform:translateY(-2px)}
+.btn-outline-l{background:transparent;border-color:var(--line-d);color:#F6F1E9}
+.btn-outline-l:hover{background:rgba(255,255,255,.08);transform:translateY(-2px)}
+
+/* HERO */
+.hero{display:grid;grid-template-columns:1.05fr .95fr;min-height:100vh}
+.hero-l{display:flex;flex-direction:column;justify-content:center;padding:64px clamp(28px,5vw,84px);background:var(--cream);position:relative}
+.hero-l:before{content:"";position:absolute;inset:0;background:radial-gradient(120% 80% at 0% 0%,rgba(94,138,120,.10),transparent 60%);pointer-events:none}
+.hero-name{position:relative;font-size:.82rem;letter-spacing:.24em;text-transform:uppercase;font-weight:700;color:var(--ink-soft);margin-bottom:22px}
+.hero-name b{color:var(--sage-deep)}
+.hero h1{position:relative;font-size:clamp(2.5rem,5vw,4.4rem);margin-bottom:22px}
+.hero-sub{position:relative;font-size:1.12rem;color:var(--ink-soft);max-width:34ch;margin-bottom:34px}
+.hero-cta{position:relative;display:flex;gap:14px;flex-wrap:wrap}
+.hero-r{position:relative;background:linear-gradient(160deg,var(--forest-2),var(--sage-deep))}
+.hero-r img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-r:after{content:"";position:absolute;inset:0;background:linear-gradient(200deg,rgba(22,36,31,.05),rgba(22,36,31,.45))}
+
+/* TRUST BAR */
+.trust{background:var(--forest);color:#EFE8DA}
+.trust-in{display:flex;gap:0;flex-wrap:wrap}
+.trust-item{flex:1;min-width:220px;padding:26px 30px;border-right:1px solid var(--line-d);display:flex;align-items:center;gap:12px;font-size:.94rem;font-weight:500}
+.trust-item:last-child{border-right:none}
+.trust-dot{width:7px;height:7px;border-radius:50%;background:var(--gold);flex:none}
+
+/* STAT */
+.stat{padding:clamp(70px,10vw,120px) 0;text-align:center;background:var(--paper)}
+.stat .big{font-family:'Lora',serif;font-weight:600;font-size:clamp(4.5rem,16vw,12rem);line-height:.9;color:var(--forest);letter-spacing:-.03em}
+.stat .lbl{max-width:36ch;margin:26px auto 0;font-size:1.18rem;color:var(--ink-soft)}
+
+/* PROOF / TESTIMONIALS */
+.section{padding:clamp(64px,8vw,104px) 0}
+.section-cream{background:var(--cream)}
+.sec-head{max-width:40ch;margin-bottom:52px}
+.sec-head h2{font-size:clamp(1.9rem,3.4vw,2.9rem);margin:14px 0 0}
+.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.qcard{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:34px 32px;position:relative}
+.qcard .mark{font-family:'Lora',serif;font-size:3.4rem;line-height:.6;color:var(--sage);height:26px;display:block}
+.qcard p{font-family:'Lora',serif;font-size:1.24rem;line-height:1.45;color:var(--ink);margin:8px 0 20px}
+.qcard .who{font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--sage-deep)}
+.qcard .stars{color:var(--gold);letter-spacing:2px;font-size:.9rem;margin-bottom:14px}
+
+/* SERVICES */
+.svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+.svc-item{padding:28px 26px;border:1px solid var(--line);border-radius:16px;background:var(--paper);transition:border-color .2s,transform .2s}
+.svc-item:hover{border-color:var(--sage);transform:translateY(-3px)}
+.svc-item h3{font-size:1.28rem;margin-bottom:8px}
+.svc-item .tag{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--sage-deep)}
+
+/* ABOUT */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,80px);align-items:center}
+.about .lead{font-family:'Lora',serif;font-size:clamp(1.5rem,2.4vw,2rem);line-height:1.3;color:var(--forest);margin-bottom:0}
+.about p.body{font-size:1.06rem;color:var(--ink-soft);margin-top:20px}
+.badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.badge{font-size:.8rem;font-weight:600;padding:8px 16px;border-radius:999px;background:var(--cream);border:1px solid var(--line);color:var(--ink-soft)}
+
+/* DARK FLOOR */
+.floor{background:var(--forest);color:#EFE8DA;padding:clamp(64px,8vw,104px) 0}
+.floor h2{font-size:clamp(1.9rem,3.4vw,2.9rem);margin:14px 0 46px;color:#F6F1E9;max-width:22ch}
+.floor .eyebrow{color:var(--gold)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+.tile{border:1px solid var(--line-d);border-radius:18px;padding:30px 28px;background:rgba(255,255,255,.03)}
+.tile p{font-family:'Lora',serif;font-size:1.14rem;line-height:1.5;color:#F2ECDF;margin-bottom:16px}
+.tile .who{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--gold)}
+.tile h3{font-size:1.22rem;color:#F6F1E9;margin-bottom:10px}
+.tile .txt{font-size:.98rem;color:#CBBFA9;line-height:1.55}
+
+/* BOOK */
+.book{background:linear-gradient(150deg,var(--forest),var(--sage-deep));color:#F6F1E9;padding:clamp(72px,10vw,128px) 0;text-align:center}
+.book h2{font-size:clamp(2.2rem,5vw,4rem);margin-bottom:20px}
+.book p{font-size:1.16rem;color:#E6DECF;max-width:40ch;margin:0 auto 20px}
+.book .contacts{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+.book .fine{margin-top:26px;font-size:.94rem;color:#CFC6B4}
+.book .fine a{color:#F6F1E9;text-decoration:underline;text-underline-offset:3px}
+
+/* FOOTER */
+footer{background:var(--forest-2);color:#B9B0A0;padding:34px 0;text-align:center;font-size:.9rem;padding-bottom:calc(34px + env(safe-area-inset-bottom))}
+footer b{color:#EFE8DA;font-family:'Lora',serif;font-weight:600}
+
+/* MOBILE STICKY BAR */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;
+  grid-template-columns:1fr 1fr;gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));
+  background:rgba(22,36,31,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line-d)}
+.sticky a{display:flex;align-items:center;justify-content:center;gap:8px;min-height:50px;border-radius:12px;font-weight:700;font-size:.98rem}
+.sticky .call{background:var(--gold);color:#231a0c}
+.sticky .mail{background:transparent;border:1.5px solid rgba(246,241,233,.5);color:#F6F1E9}
+
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-r{min-height:52vh;order:-1}
+  .hero-l{padding:48px 28px 56px}
+  .hero h1{font-size:clamp(2.3rem,9vw,3.2rem)}
+  .about{grid-template-columns:1fr}
+  .trust-in{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .trust-item{flex:0 0 auto;min-width:70%;border-right:1px solid var(--line-d)}
+  .sticky{display:grid}
+  body{padding-bottom:74px}
+  .hero-cta .btn{flex:1}
+}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-l">
+    <div class="hero-name"><b>Catherine Catlett, ATC, LMT</b> · Sports &amp; Clinical Massage</div>
+    <h1>Massage with a<br>sports-medicine mind.</h1>
+    <p class="hero-sub">A Certified Athletic Trainer and Licensed Massage Therapist in one chair — clinical, hands-on, and tailored to how your body actually moves.</p>
+    <div class="hero-cta"><a class="btn btn-primary" href="tel:+13303539212"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call to Book</a><a class="btn btn-ghost" href="mailto:catherinecatlettlmt@gmail.com"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg> Email</a></div>
+  </div>
+  <div class="hero-r">
+    <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&amp;fit=crop&amp;w=1300&amp;q=80" alt="Clinical sports massage on the shoulder and neck" loading="eager">
+  </div>
+</header>
+
+<section class="trust"><div class="trust-in"><div class="trust-item"><span class="trust-dot"></span>Certified Athletic Trainer + LMT</div><div class="trust-item"><span class="trust-dot"></span>11+ Years Clinical Experience</div><div class="trust-item"><span class="trust-dot"></span>Canton, OH</div><div class="trust-item"><span class="trust-dot"></span>B.S. University of Cincinnati</div></div></section>
+
+<section class="stat"><div class="wrap">
+  <div class="big">ATC + LMT</div>
+  <p class="lbl">two clinical credentials, one practitioner — a sports-medicine background behind every session.</p>
+</div></section>
+
+  <section class="section section-cream"><div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Why clients trust Catherine</span>
+      <h2>Credentials you can feel in the work.</h2></div>
+    <div class="quotes"><div class="qcard"><span class="mark">✓</span><p>Certified Athletic Trainer (ATC)</p></div><div class="qcard"><span class="mark">✓</span><p>Ohio Licensed LMT</p></div><div class="qcard"><span class="mark">✓</span><p>Sports Massage</p></div></div>
+  </div></section>
+  <section class="section"><div class="wrap">
+    <div class="sec-head"><span class="eyebrow">The work</span>
+      <h2>What Catherine does.</h2></div>
+    <div class="svc"><div class="svc-item"><span class="tag">Massage</span><h3>Deep Tissue</h3></div><div class="svc-item"><span class="tag">Massage</span><h3>Sports Massage</h3></div><div class="svc-item"><span class="tag">Massage</span><h3>Trigger Point Therapy</h3></div><div class="svc-item"><span class="tag">Massage</span><h3>Neuromuscular</h3></div><div class="svc-item"><span class="tag">Massage</span><h3>Structural Integration</h3></div><div class="svc-item"><span class="tag">Massage</span><h3>Pregnancy Massage</h3></div></div>
+  </div></section>
+
+  <section class="section section-cream"><div class="wrap about">
+    <div>
+      <span class="eyebrow">About Catherine</span>
+      <p class="lead" style="margin-top:14px">Catherine is a rare dual-credentialed practitioner: a Certified Athletic Trainer and Licensed Massage Therapist who previously worked in athletic training at Alliance Community Hospital.</p>
+      <p class="body">That sports-medicine background shapes every session, from structural integration and neuromuscular work to sports and deep tissue massage. She treats a wide range, from athletes to pregnancy and geriatric clients.</p>
+      <div class="badges"><span class="badge">Certified Athletic Trainer (ATC)</span><span class="badge">Ohio Licensed LMT</span><span class="badge">Sports Massage</span><span class="badge">Structural Integration</span><span class="badge">Neuromuscular Therapy</span><span class="badge">Trigger Point</span></div>
+    </div>
+    <div>
+      <div class="qcard" style="background:var(--paper)">
+        <span class="mark">✓</span>
+        <p style="font-size:1.14rem">Catherine Catlett, ATC, LMT</p>
+        <p class="body" style="margin-top:0"><a href="https://www.google.com/maps/search/?api=1&query=Catherine+Catlett+LMT,+4105+Fulton+Dr+NW,+Canton,+OH+44718" target="_blank" rel="noopener" style="color:var(--sage-deep);font-weight:700;text-decoration:underline;text-underline-offset:3px">4105 Fulton Dr NW, Canton, OH 44718</a></p>
+        <div class="badges" style="margin-top:18px">
+          <span class="badge">Canton, OH</span>
+          <span class="badge">By Appointment</span>
+        </div>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="floor"><div class="wrap">
+    <span class="eyebrow">The approach</span>
+    <h2>How Catherine works.</h2>
+    <div class="tiles"><div class="tile"><h3>Assessment first</h3><p class="txt">Every session starts with what&#x27;s actually going on — the history, the movement, the tension pattern — before a single technique.</p></div><div class="tile"><h3>Tailored, not templated</h3><p class="txt">Pressure and modality are matched to your body and your goals, not a fixed routine.</p></div><div class="tile"><h3>Clinical, personal</h3><p class="txt">The training is serious. The room is calm. You leave knowing exactly what was worked and why.</p></div></div>
+  </div></section>
+  <section class="book"><div class="wrap">
+    <span class="eyebrow" style="color:#F0D9B4">Book a session</span>
+    <h2>Catherine is taking new clients.</h2>
+    <p>Flexible scheduling by appointment across Canton. Call or email to set up your first session.</p>
+    <div class="contacts"><a class="btn btn-light" href="tel:+13303539212"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call 330-353-9212</a><a class="btn btn-outline-l" href="mailto:catherinecatlettlmt@gmail.com"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg> Email Catherine</a></div>
+    <p class="fine">Prefer to see the studio first? <a href="https://www.google.com/maps/search/?api=1&query=Catherine+Catlett+LMT,+4105+Fulton+Dr+NW,+Canton,+OH+44718" target="_blank" rel="noopener">Find Catherine Catlett, ATC, LMT on the map</a>.</p>
+  </div></section>
+
+<footer><div class="wrap"><b>Catherine Catlett, ATC, LMT</b> &middot; Canton, OH &middot; 330-353-9212</div></footer>
+
+<nav class="sticky" aria-label="Quick contact"><a class="call" href="tel:+13303539212"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call to Book</a><a class="mail" href="mailto:catherinecatlettlmt@gmail.com"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg> Email</a></nav>
+
+</body>
+</html>

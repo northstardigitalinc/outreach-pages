@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dundas Valley Groomers — Pet Grooming in Dundas, Ontario</title>
+<meta name="description" content="Dundas Valley Groomers is a full-service dog and cat grooming salon on King Street West in Dundas, run by Leisa &mdash; over 20 years of grooming experience.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Calistoga&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --primary:#5C8A5A;
+    --primary-dark:#426340;
+    --accent:#D98E4B;
+    --paper:#FBF6EF;
+    --paper-2:#F3EADD;
+    --ink:#2A211A;
+    --ink-soft:#5A4E43;
+    --line:#E4D8C7;
+    --white:#fff;
+  }
+  html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  h1,h2,h3{font-family:'Calistoga',Georgia,serif;font-weight:400;line-height:1.05;letter-spacing:-.01em}
+  .serif{font-family:'Fraunces',Georgia,serif}
+  a{color:inherit;text-decoration:none}
+  .wrap{width:100%;max-width:1160px;margin:0 auto;padding:0 clamp(22px,5vw,56px)}
+  .kicker{font-size:12px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--primary)}
+
+  /* ---------- reveal ---------- */
+  .reveal{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i,0)*90ms)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal-l{opacity:0;transform:translateX(-40px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i,0)*90ms)}
+  .reveal-l.in{opacity:1;transform:none}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:clamp(90px,14vh,150px) 0 clamp(50px,8vh,90px);overflow:hidden}
+  .hero-bg{position:absolute;inset:0;z-index:0;background:
+      radial-gradient(60% 55% at 78% 18%, color-mix(in srgb,var(--primary) 22%, transparent) 0%, transparent 62%),
+      radial-gradient(55% 60% at 12% 88%, color-mix(in srgb,var(--accent) 20%, transparent) 0%, transparent 60%),
+      var(--paper)}
+  .paw{position:absolute;color:var(--primary);opacity:.10;z-index:0}
+  .paw.p1{width:150px;top:16%;right:8%;transform:rotate(18deg)}
+  .paw.p2{width:96px;bottom:14%;left:6%;transform:rotate(-24deg);color:var(--accent);opacity:.14}
+  .hero-inner{position:relative;z-index:2}
+  .hero .kicker{display:inline-block;margin-bottom:22px;clip-path:inset(0 100% 0 0);animation:wipe 1s .15s cubic-bezier(.2,.7,.2,1) forwards}
+  .hero h1{font-size:clamp(2.9rem,8.4vw,6.4rem);color:var(--ink);max-width:15ch}
+  .hero h1 .word{display:inline-block;opacity:0;transform:translateY(120%) rotate(3deg);animation:rise .95s cubic-bezier(.2,.75,.2,1) forwards}
+  .hero h1 .em{color:var(--primary)}
+  .hero-sub{font-size:clamp(1.06rem,2.3vw,1.32rem);color:var(--ink-soft);max-width:46ch;margin-top:28px;opacity:0;animation:fade 1s .8s ease forwards}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px;opacity:0;animation:fade 1s 1s ease forwards}
+  .btn{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:1rem;padding:16px 30px;border-radius:999px;cursor:pointer;transition:transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .25s,background .25s}
+  .btn-primary{background:var(--primary);color:var(--white);box-shadow:0 12px 30px -12px color-mix(in srgb,var(--primary) 80%,transparent)}
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 20px 40px -14px color-mix(in srgb,var(--primary) 85%,transparent)}
+  .btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+  .btn-ghost:hover{transform:translateY(-3px);border-color:var(--primary);color:var(--primary)}
+
+  /* ---------- trust strip ---------- */
+  .trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--paper-2) 70%,transparent)}
+  .trust .wrap{display:flex;flex-wrap:wrap;gap:clamp(18px,5vw,64px);padding-top:26px;padding-bottom:26px;align-items:center;justify-content:center;text-align:center}
+  .trust-item{display:flex;flex-direction:column;gap:2px;min-width:130px}
+  .trust-item b{font-family:'Calistoga',serif;font-size:1.5rem;color:var(--primary)}
+  .trust-item span{font-size:.82rem;letter-spacing:.04em;color:var(--ink-soft)}
+
+  /* ---------- section ---------- */
+  section{padding:clamp(72px,11vh,130px) 0}
+  .sec-head{max-width:34ch;margin-bottom:clamp(38px,6vh,64px)}
+  .sec-head h2{font-size:clamp(2rem,5vw,3.3rem);color:var(--ink);margin-top:14px}
+
+  /* ---------- services ---------- */
+  .services{background:var(--paper)}
+  .svc-list{display:grid;gap:2px;border-radius:22px;overflow:hidden;border:1px solid var(--line)}
+  .svc{display:grid;grid-template-columns:auto 1fr;gap:clamp(16px,3vw,40px);align-items:baseline;padding:clamp(24px,3.4vw,38px);background:var(--white);transition:background .35s,color .35s}
+  .svc:hover{background:var(--primary-dark)}
+  .svc:hover .svc-name,.svc:hover .svc-desc,.svc:hover .svc-num{color:var(--white)}
+  .svc-num{font-family:'Fraunces',serif;font-size:1rem;color:var(--primary);font-weight:500;padding-top:6px}
+  .svc-name{font-family:'Calistoga',serif;font-size:clamp(1.3rem,3vw,1.9rem);color:var(--ink);line-height:1.1}
+  .svc-desc{color:var(--ink-soft);margin-top:8px;font-size:1.02rem;max-width:60ch}
+
+  /* ---------- pricing ---------- */
+  .pricing{background:var(--paper-2)}
+  .price-card{background:var(--white);border:1px solid var(--line);border-radius:24px;padding:clamp(30px,4.5vw,56px);max-width:560px}
+  .price-row{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:18px 0;border-bottom:1px dashed var(--line)}
+  .price-row:last-child{border-bottom:none}
+  .price-row .pn{font-family:'Fraunces',serif;font-size:1.15rem;color:var(--ink)}
+  .price-row .pv{font-family:'Calistoga',serif;font-size:1.35rem;color:var(--primary);white-space:nowrap}
+  .price-note{margin-top:22px;font-size:.92rem;color:var(--ink-soft);font-style:italic}
+
+  /* ---------- testimonials ---------- */
+  .testi{background:var(--primary-dark);color:var(--white);position:relative;overflow:hidden}
+  .testi .paw{color:var(--white);opacity:.06}
+  .testi .paw.t1{width:220px;top:-30px;right:-20px;transform:rotate(20deg)}
+  .testi .kicker{color:color-mix(in srgb,var(--white) 82%,var(--primary))}
+  .testi h2{color:var(--white);font-size:clamp(2rem,5vw,3.3rem);margin-top:14px}
+  .quotes{display:grid;gap:clamp(22px,3vw,30px);grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));margin-top:clamp(40px,6vh,60px)}
+  .quote{background:color-mix(in srgb,var(--white) 8%,transparent);border:1px solid color-mix(in srgb,var(--white) 16%,transparent);border-radius:20px;padding:clamp(26px,3vw,34px);backdrop-filter:blur(2px)}
+  .quote .mark{font-family:'Calistoga',serif;font-size:3rem;line-height:.6;color:var(--accent);display:block;height:26px}
+  .quote p{font-family:'Fraunces',serif;font-size:1.12rem;line-height:1.55;color:color-mix(in srgb,var(--white) 94%,transparent)}
+  .quote cite{display:block;margin-top:18px;font-family:'Inter';font-style:normal;font-size:.86rem;letter-spacing:.03em;color:color-mix(in srgb,var(--white) 70%,transparent)}
+  .quote cite::before{content:"— "}
+
+  /* ---------- about ---------- */
+  .about{background:var(--paper)}
+  .about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(34px,6vw,80px);align-items:center}
+  .about-copy h2{font-size:clamp(1.9rem,4.4vw,3rem);color:var(--ink);margin:14px 0 20px}
+  .about-copy p{color:var(--ink-soft);font-size:1.08rem;margin-bottom:16px;max-width:56ch}
+  .about-card{background:var(--primary);color:var(--white);border-radius:26px;padding:clamp(30px,4vw,46px);position:relative;overflow:hidden}
+  .about-card .paw{color:var(--white);opacity:.12;width:120px;bottom:-14px;right:-10px;transform:rotate(-18deg)}
+  .about-card .oc-name{font-family:'Calistoga',serif;font-size:1.9rem}
+  .about-card .oc-role{font-size:.9rem;letter-spacing:.12em;text-transform:uppercase;opacity:.85;margin-top:6px}
+  .about-card ul{list-style:none;margin-top:24px;display:grid;gap:12px}
+  .about-card li{display:flex;gap:12px;align-items:flex-start;font-size:.98rem}
+  .about-card li svg{flex:none;margin-top:3px}
+
+  /* ---------- contact / cta ---------- */
+  .contact{background:var(--paper-2)}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,60px)}
+  .info-row{display:flex;gap:16px;align-items:flex-start;padding:20px 0;border-bottom:1px solid var(--line)}
+  .info-row:last-child{border-bottom:none}
+  .info-row .ic{flex:none;width:44px;height:44px;border-radius:12px;background:color-mix(in srgb,var(--primary) 12%,transparent);display:grid;place-items:center;color:var(--primary)}
+  .info-row .lbl{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+  .info-row .val{font-family:'Fraunces',serif;font-size:1.14rem;color:var(--ink)}
+  .info-row a.val:hover{color:var(--primary)}
+  .cta-box{background:var(--ink);color:var(--paper);border-radius:26px;padding:clamp(34px,5vw,56px);display:flex;flex-direction:column;justify-content:center}
+  .cta-box h2{font-size:clamp(1.8rem,4.4vw,2.8rem);color:var(--paper)}
+  .cta-box p{color:color-mix(in srgb,var(--paper) 78%,transparent);margin:16px 0 30px;font-size:1.06rem}
+  .cta-box .btn-primary{align-self:flex-start}
+  .hours{margin-top:8px;display:grid;gap:8px}
+  .hours div{display:flex;justify-content:space-between;gap:20px;font-size:.98rem;color:var(--ink-soft);border-bottom:1px dotted var(--line);padding-bottom:7px}
+  .hours b{color:var(--ink);font-weight:600}
+  .socials{display:flex;gap:14px;margin-top:26px}
+  .socials a{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;color:var(--ink);transition:.25s}
+  .socials a:hover{background:var(--primary);border-color:var(--primary);color:#fff;transform:translateY(-3px)}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--ink);color:color-mix(in srgb,var(--paper) 64%,transparent);padding:44px 0;text-align:center;font-size:.86rem}
+  footer b{font-family:'Calistoga',serif;color:var(--paper);font-size:1.15rem;display:block;margin-bottom:8px;font-weight:400}
+
+  @keyframes rise{to{opacity:1;transform:none}}
+  @keyframes fade{to{opacity:1}}
+  @keyframes wipe{to{clip-path:inset(0 0 0 0)}}
+
+  @media(max-width:820px){
+    .about-grid{grid-template-columns:1fr}
+    .contact-grid{grid-template-columns:1fr}
+    .svc{grid-template-columns:1fr;gap:6px}
+    .svc-num{padding-top:0}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .reveal,.reveal-l{opacity:1;transform:none;transition:none}
+    .hero .kicker,.hero h1 .word,.hero-sub,.hero-cta{animation:none;opacity:1;transform:none;clip-path:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-bg"></div>
+  <svg class="paw p1" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true"><ellipse cx="26" cy="34" rx="9" ry="13"/><ellipse cx="50" cy="26" rx="9" ry="14"/><ellipse cx="74" cy="34" rx="9" ry="13"/><path d="M50 50c-15 0-27 11-27 24 0 9 8 14 27 14s27-5 27-14c0-13-12-24-27-24z"/></svg>
+  <svg class="paw p2" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true"><ellipse cx="26" cy="34" rx="9" ry="13"/><ellipse cx="50" cy="26" rx="9" ry="14"/><ellipse cx="74" cy="34" rx="9" ry="13"/><path d="M50 50c-15 0-27 11-27 24 0 9 8 14 27 14s27-5 27-14c0-13-12-24-27-24z"/></svg>
+  <div class="wrap hero-inner">
+    <span class="kicker">20+ years grooming · Dundas</span>
+    <h1>Twenty years of grooming, right on *King* *Street*</h1>
+    <p class="hero-sub">Leisa has been grooming dogs and cats for over twenty years at Dundas Valley Groomers &mdash; drop your pet off, stroll the shops of downtown Dundas, and pick them up looking and feeling great.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="tel:+19056283838">Book with Leisa · 905-628-3838</a>
+      <a class="btn btn-ghost" href="mailto:dundasvalleygroomers@gmail.com">Email the salon</a>
+    </div>
+  </div>
+</header>
+
+<!-- TRUST -->
+<div class="trust"><div class="wrap"><div class="trust-item"><b>20+ yrs</b><span>of experience</span></div><div class="trust-item"><b>4.6★</b><span>Google rating</span></div><div class="trust-item"><b>Dogs &amp; cats</b><span>difficult dogs too</span></div><div class="trust-item"><b>King St W</b><span>downtown Dundas</span></div></div></div>
+
+<!-- SERVICES -->
+<section class="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">What we do</span>
+      <h2>Full grooming, plus the extras that matter</h2>
+    </div>
+    <div class="svc-list">
+      <div class="svc"><div class="svc-num">01</div><div><h3 class="svc-name">Bath &amp; comb-out</h3><p class="svc-desc">A thorough wash and comb-out that leaves the coat clean and tangle-free.</p></div></div><div class="svc"><div class="svc-num">02</div><div><h3 class="svc-name">De-tangling &amp; de-matting</h3><p class="svc-desc">Patient work on tricky coats to get your pet comfortable again.</p></div></div><div class="svc"><div class="svc-num">03</div><div><h3 class="svc-name">Skin &amp; coat conditioning</h3><p class="svc-desc">Conditioning treatments that leave the coat soft and healthy.</p></div></div><div class="svc"><div class="svc-num">04</div><div><h3 class="svc-name">Ear cleaning &amp; nail cutting</h3><p class="svc-desc">The finishing touches, including anal-gland inspection.</p></div></div><div class="svc"><div class="svc-num">05</div><div><h3 class="svc-name">Walk-in nail trims</h3><p class="svc-desc">Nail trims welcome without an appointment &mdash; cats and difficult dogs too.</p></div></div><div class="svc"><div class="svc-num">06</div><div><h3 class="svc-name">Hand-stripping &amp; cat boarding</h3><p class="svc-desc">Specialty hand-stripping, plus cat boarding by arrangement.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Simple, honest pricing</span>
+      <h2>Fair value, quoted for your pet</h2>
+    </div>
+    <div class="price-card reveal">
+      <div class="price-row"><span class="pn">Full groom</span><span class="pv">By appointment / quote</span></div><div class="price-row"><span class="pn">Bath &amp; comb-out</span><span class="pv">By quote</span></div><div class="price-row"><span class="pn">Walk-in nail trim</span><span class="pv">Walk in &mdash; ask us</span></div><div class="price-row"><span class="pn">Cat boarding</span><span class="pv">By arrangement</span></div>
+      <p class="price-note">Full grooms are by appointment and priced to your pet&rsquo;s size and coat &mdash; call for a quote. Walk-in nail trims are always welcome.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi">
+  <svg class="paw t1" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true"><ellipse cx="26" cy="34" rx="9" ry="13"/><ellipse cx="50" cy="26" rx="9" ry="14"/><ellipse cx="74" cy="34" rx="9" ry="13"/><path d="M50 50c-15 0-27 11-27 24 0 9 8 14 27 14s27-5 27-14c0-13-12-24-27-24z"/></svg>
+  <div class="wrap">
+    <div class="sec-head reveal" style="max-width:40ch">
+      <span class="kicker">In their words</span>
+      <h2>Vets and neighbours send their dogs here</h2>
+    </div>
+    <div class="quotes">
+      <div class="quote"><span class="mark">&ldquo;</span><p>Hands down, best groomer in GTA. Outstanding care and attention for your pet(s) at an excellent value.</p><cite>Renee O&rsquo;Reilly, Google review</cite></div><div class="quote"><span class="mark">&ldquo;</span><p>Luna looked lovely! Great grooming job but more importantly I felt that Luna was left in loving hands.</p><cite>Nikki Sjoblom, Google review</cite></div><div class="quote"><span class="mark">&ldquo;</span><p>My dogs have always looked great when the girls are finished. My veterinarian recommended this place.</p><cite>Jocelyn Hoy, Google review</cite></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+  <div class="wrap about-grid">
+    <div class="about-copy reveal-l">
+      <span class="kicker">The hands behind the scissors</span>
+      <h2>Two decades of grooming in the heart of Dundas</h2>
+      <p>Leisa is a professional groomer with over twenty years of experience, running Dundas Valley Groomers on King Street West &mdash; right behind the shops of downtown Dundas.</p><p>Cats, difficult dogs and walk-in nail trims are all welcome, and the reviews say it best: pets are left in loving hands, and even local vets send clients their way.</p>
+    </div>
+    <div class="about-card reveal" style="--i:1">
+      <svg class="paw" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true"><ellipse cx="26" cy="34" rx="9" ry="13"/><ellipse cx="50" cy="26" rx="9" ry="14"/><ellipse cx="74" cy="34" rx="9" ry="13"/><path d="M50 50c-15 0-27 11-27 24 0 9 8 14 27 14s27-5 27-14c0-13-12-24-27-24z"/></svg>
+      <div class="oc-name">Leisa</div>
+      <div class="oc-role">Owner &amp; groomer, 20+ years</div>
+      <ul><li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Over 20 years of grooming experience</li><li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Cats and difficult dogs welcome</li><li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Walk-in nail trims, no appointment needed</li><li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Vet-recommended, 4.6★ on Google</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT / CTA -->
+<section class="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal-l">
+      <span class="kicker">Find us</span>
+      <h2 style="font-size:clamp(1.7rem,4vw,2.6rem);margin:12px 0 18px;color:var(--ink)">Dundas's little grooming room</h2>
+      <div class="info-row">
+        <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+        <div><div class="lbl">Studio</div><a class="val" href="https://www.google.com/maps/search/Dundas+Valley+Groomers+249+King+St+W+Dundas+ON" target="_blank" rel="noopener">249 King St W, Dundas, ON L9H 1V8</a></div>
+      </div>
+      <div class="info-row">
+        <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span>
+        <div><div class="lbl">Call or text</div><a class="val" href="tel:+19056283838">905-628-3838</a></div>
+      </div>
+      <div class="info-row">
+        <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span>
+        <div><div class="lbl">Email</div><a class="val" href="mailto:dundasvalleygroomers@gmail.com">dundasvalleygroomers@gmail.com</a></div>
+      </div>
+      <div class="hours"><div><span>Tue&ndash;Fri</span><b>8am &ndash; 6pm</b></div><div><span>Saturday</span><b>8am &ndash; 5pm</b></div><div><span>Sun &amp; Mon</span><b>Closed</b></div></div>
+      <div class="socials"><a href="https://www.facebook.com/p/Pleasant-Valley-Groomers-100075941960693/" target="_blank" rel="noopener" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg></a></div>
+    </div>
+    <div class="cta-box reveal" style="--i:1">
+      <h2>Book your pet in with Leisa</h2>
+      <p>Call to book a full groom, or just walk in for a nail trim.</p>
+      <a class="btn btn-primary" href="tel:+19056283838">Call 905-628-3838</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <b>Dundas Valley Groomers</b>
+    <div>249 King St W, Dundas, ON L9H 1V8 · 905-628-3838 · dundasvalleygroomers@gmail.com</div>
+    <div style="margin-top:14px;opacity:.6;font-size:.8rem">A sample page crafted with care by Northstar Digital.</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // word-by-word hero rise
+  var h1=document.querySelector('.hero h1');
+  if(h1){
+    var words=h1.textContent.trim().split(/\s+/);
+    h1.innerHTML=words.map(function(w,i){
+      var em=/\*/.test(w);var t=w.replace(/\*/g,'');
+      return '<span class="word'+(em?' em':'')+'" style="animation-delay:'+(0.35+i*0.08)+'s">'+t+'&nbsp;</span>';
+    }).join('');
+  }
+  // scroll reveals
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:0.16,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal,.reveal-l').forEach(function(el,i){el.style.setProperty('--i',(i%4));io.observe(el);});
+  // stagger service rows
+  document.querySelectorAll('.svc').forEach(function(el,i){el.classList.add('reveal');el.style.setProperty('--i',i);io.observe(el);});
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mary Nails Spa — Nail Salon in Guelph</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blush:      #F5E7E4;
+      --blush-deep: #EAD3CF;
+      --plum:       #3B2230;
+      --plum-soft:  #5A3547;
+      --rose:       #C88A8A;
+      --rose-pale:  #F0D8D4;
+      --gold:       #B08D57;
+      --gold-light: #D9BE93;
+      --ink:        #2A1E24;
+      --muted:      #8A6F78;
+      --line:       #E2CFCA;
+      --white:      #FFFDFC;
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: var(--blush);
+      color: var(--ink);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .serif { font-family: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Times New Roman', serif; }
+
+    .hero {
+      min-height: 100svh;
+      background: var(--plum);
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(48px, 9vw, 96px) clamp(24px, 7vw, 88px);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 55% at 78% 22%, rgba(217,190,147,0.20) 0%, transparent 68%),
+        radial-gradient(ellipse 60% 70% at 12% 88%, rgba(200,138,138,0.22) 0%, transparent 62%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 760px;
+      clip-path: inset(0 0 100% 0);
+      animation: heroReveal 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+    }
+    .hero-eyebrow {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.26em;
+      text-transform: uppercase; color: var(--gold-light); margin-bottom: 26px;
+    }
+    .hero-title {
+      font-size: clamp(44px, 9vw, 96px); font-weight: 500; line-height: 1.02;
+      letter-spacing: -0.01em; margin-bottom: 26px;
+    }
+    .hero-title em { font-style: italic; color: var(--gold-light); }
+    .hero-sub {
+      font-size: clamp(16px, 2.4vw, 21px); font-weight: 300;
+      color: rgba(255,255,255,0.74); max-width: 500px; margin-bottom: 44px;
+    }
+    .hero-cta { display: inline-flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .btn {
+      background: var(--rose); color: var(--white); font-weight: 600; font-size: 14px;
+      letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none;
+      padding: 17px 40px; border-radius: 40px;
+      transition: transform 0.18s ease, background 0.2s ease; display: inline-block;
+    }
+    .btn:hover { transform: translateY(-2px); background: var(--gold); }
+    .hero-phone { color: rgba(255,255,255,0.6); font-size: 14px; text-decoration: none; letter-spacing: 0.03em; }
+    .hero-phone:hover { color: var(--gold-light); }
+
+    .reveal { opacity: 0; transform: translateY(28px) scale(0.985); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    .section { padding: clamp(64px, 10vw, 128px) clamp(24px, 7vw, 88px); }
+    .label {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--rose); margin-bottom: 20px;
+    }
+    .head {
+      font-size: clamp(28px, 4.4vw, 46px); font-weight: 500; line-height: 1.18;
+      color: var(--plum); max-width: 620px;
+    }
+    .head em { font-style: italic; color: var(--gold); }
+
+    .services { background: var(--white); }
+    .services-grid {
+      display: grid; grid-template-columns: 1fr; gap: 2px;
+      margin-top: 56px; background: var(--line);
+      border: 1px solid var(--line);
+    }
+    .svc { background: var(--white); padding: 34px 32px; }
+    .svc h3 { font-size: 19px; font-weight: 600; color: var(--plum); margin-bottom: 10px; }
+    .svc p { font-size: 14px; color: var(--muted); }
+
+    .pricing { background: var(--blush); }
+    .price-list { margin-top: 48px; max-width: 640px; }
+    .price-row {
+      display: flex; align-items: baseline; gap: 16px;
+      padding: 20px 0; border-bottom: 1px solid var(--line);
+    }
+    .price-name { font-size: 17px; font-weight: 500; color: var(--ink); white-space: nowrap; }
+    .price-dots { flex: 1; border-bottom: 1px dotted var(--muted); transform: translateY(-4px); opacity: 0.5; }
+    .price-amt { font-size: 17px; font-weight: 600; color: var(--rose); white-space: nowrap; }
+    .price-note { margin-top: 24px; font-size: 13px; color: var(--muted); font-style: italic; }
+
+    .testimonials { background: var(--plum); color: var(--white); }
+    .testimonials .label { color: var(--gold-light); }
+    .t-grid { display: grid; grid-template-columns: 1fr; gap: 32px; margin-top: 56px; }
+    .t-card {
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 6px; padding: 36px 34px;
+    }
+    .t-quote { font-size: clamp(17px, 2.1vw, 21px); font-style: italic; line-height: 1.6; color: #fff; margin-bottom: 20px; }
+    .t-author { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-light); }
+
+    .spotlight { background: var(--rose-pale); }
+    .spotlight .head { color: var(--plum); }
+    .spotlight p { font-size: 16px; line-height: 1.85; color: var(--plum-soft); max-width: 620px; margin-top: 22px; }
+    .artist-tags { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 10px; }
+    .artist-tag {
+      background: var(--white); color: var(--plum); font-size: 12px; font-weight: 600;
+      letter-spacing: 0.06em; padding: 8px 18px; border-radius: 30px;
+    }
+
+    .contact { background: var(--white); }
+    .contact-grid { display: grid; grid-template-columns: 1fr; gap: 32px; margin-top: 48px; }
+    .contact-block h4 {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--rose); margin-bottom: 12px;
+    }
+    .contact-block p, .contact-block a { font-size: 16px; color: var(--ink); text-decoration: none; }
+    .contact-block a:hover { color: var(--rose); }
+
+    .booking { background: var(--plum); color: var(--white); text-align: center; position: relative; overflow: hidden; }
+    .booking::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(200,138,138,0.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .booking .eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 18px; }
+    .booking h2 { font-size: clamp(30px, 5.2vw, 56px); font-weight: 500; line-height: 1.15; margin-bottom: 18px; }
+    .booking h2 em { font-style: italic; color: var(--gold-light); }
+    .booking p { color: rgba(255,255,255,0.6); font-size: 15px; margin-bottom: 42px; }
+    .booking .btn { font-size: 15px; padding: 19px 48px; }
+
+    .footer {
+      background: var(--plum); border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 26px clamp(24px, 7vw, 88px); display: flex; flex-wrap: wrap;
+      gap: 12px; justify-content: space-between; align-items: center;
+    }
+    .footer .n { font-weight: 600; color: rgba(255,255,255,0.7); }
+    .footer .c { font-size: 12px; color: rgba(255,255,255,0.35); letter-spacing: 0.06em; }
+
+    @keyframes heroReveal { to { clip-path: inset(0 0 0 0); } }
+
+    @media (min-width: 760px) {
+      .services-grid { grid-template-columns: repeat(3, 1fr); }
+      .t-grid { grid-template-columns: repeat(3, 1fr); }
+      .contact-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Nail Salon · Guelph, ON</div>
+      <h1 class="hero-title serif">Mary Nails Spa<br><em>nails worth coming back for.</em></h1>
+      <p class="hero-sub">A clean, friendly salon on the Gordon Street corridor where the regulars come back for the same careful hands every time. Bio gel, luxury pedicures and detailed nail art.</p>
+      <div class="hero-cta">
+        <a href="tel:5198212471" class="btn">Book Your Appointment</a>
+        <a href="tel:5198212471" class="hero-phone">(519) 821-2471</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section services">
+    <div class="reveal">
+      <div class="label">The Menu</div>
+      <h2 class="head serif">Everything from a quick shellac to a full pampered afternoon.</h2>
+    </div>
+    <div class="services-grid reveal">
+      <div class="svc"><h3>Classic Manicure</h3><p>A clean, precise finish with the care our regulars keep coming back for.</p></div>
+      <div class="svc"><h3>Luxury Pedicure</h3><p>A relaxing soak-to-polish treatment that leaves feet soft and refreshed.</p></div>
+      <div class="svc"><h3>Bio Gel Nails</h3><p>Liz's specialty — strong, natural-looking gel that lasts and lasts.</p></div>
+      <div class="svc"><h3>Acrylic &amp; Artificial Nails</h3><p>Custom length and shape, built to hold up to everyday life.</p></div>
+      <div class="svc"><h3>Shellac &amp; Gel Polish</h3><p>High-shine, chip-resistant colour that stays flawless for weeks.</p></div>
+      <div class="svc"><h3>Organic Volcano Pedicure</h3><p>A detox soak, exfoliation and mask — our most indulgent treatment.</p></div>
+    </div>
+  </section>
+
+  <section class="section pricing">
+    <div class="reveal">
+      <div class="label">Pricing</div>
+      <h2 class="head serif">Fair, transparent pricing.</h2>
+    </div>
+    <div class="price-list reveal">
+      <div class="price-row"><span class="price-name">Shellac Gel Polish</span><span class="price-dots"></span><span class="price-amt">$55</span></div>
+      <div class="price-row"><span class="price-name">Shellac Pedicure</span><span class="price-dots"></span><span class="price-amt">$75</span></div>
+      <div class="price-row"><span class="price-name">Mani + Pedi Combo</span><span class="price-dots"></span><span class="price-amt">$10 off</span></div>
+      <div class="price-row"><span class="price-name">Group &amp; Instagram-tag discounts</span><span class="price-dots"></span><span class="price-amt">Ask in salon</span></div>
+      <p class="price-note">Promotions rotate — tag us on Instagram for a discount on your visit. Final pricing confirmed in salon.</p>
+    </div>
+  </section>
+
+  <section class="section testimonials">
+    <div class="reveal">
+      <div class="label">Loved by Regulars</div>
+      <h2 class="head serif" style="color:#fff;">The regulars keep coming back.</h2>
+    </div>
+    <div class="t-grid">
+      <div class="t-card reveal"><p class="t-quote">Liz was amazing — a very efficient and relaxing experience for bio gel nails. She even stayed later after closing to finish the appointment.</p><div class="t-author">— Google reviewer</div></div>
+      <div class="t-card reveal"><p class="t-quote">I've been getting my nails done by Amee and she does an amazing job every time!</p><div class="t-author">— Google reviewer</div></div>
+      <div class="t-card reveal"><p class="t-quote">I absolutely love Mary Nails! Everyone is so nice and the salon is very clean and professional.</p><div class="t-author">— Google reviewer</div></div>
+    </div>
+  </section>
+
+  <section class="section spotlight">
+    <div class="reveal">
+      <div class="label">The Artists</div>
+      <h2 class="head serif">Regulars follow their favourite hands.</h2>
+      <p>At Mary Nails, people don't just book a salon — they book a person. Ask for Amee when you want detailed art, or Liz for flawless bio gel. It's the kind of loyalty you only earn one careful set at a time. 4.7 stars across 171 reviews, and more than 1,500 followers who found us on Instagram.</p>
+      <div class="artist-tags">
+        <span class="artist-tag">Amee — Detail &amp; Nail Art</span>
+        <span class="artist-tag">Liz — Bio Gel</span>
+        <span class="artist-tag">4.7 stars · 171 reviews</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section contact">
+    <div class="reveal">
+      <div class="label">Visit</div>
+      <h2 class="head serif">Find us in Guelph.</h2>
+    </div>
+    <div class="contact-grid reveal">
+      <div class="contact-block"><h4>Location</h4><p>1027 Gordon St, Unit 5<br>Guelph, ON</p></div>
+      <div class="contact-block"><h4>Call</h4><a href="tel:5198212471">(519) 821-2471</a></div>
+      <div class="contact-block"><h4>Email</h4><a href="mailto:marysnailsguelph@gmail.com">marysnailsguelph@gmail.com</a></div>
+    </div>
+  </section>
+
+  <section class="section booking">
+    <div class="reveal">
+      <div class="eyebrow">Your chair is waiting</div>
+      <h2 class="serif">Book your next set<br><em>at Mary Nails Spa.</em></h2>
+      <p>Call to reserve your chair, or tag us on Instagram for a discount on your next visit.</p>
+      <a href="tel:5198212471" class="btn">Call to Book — (519) 821-2471</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="n">Mary Nails Spa</div>
+    <div class="c">Guelph, ON</div>
+  </footer>
+
+  <script>
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), (i % 4) * 110);
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+
+</body>
+</html>

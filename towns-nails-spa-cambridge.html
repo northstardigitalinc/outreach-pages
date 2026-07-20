@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Town's Nails &amp; Spa — Nail Salon in Cambridge</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blush:      #F5E7E4;
+      --blush-deep: #EAD3CF;
+      --plum:       #43293A;
+      --plum-soft:  #5A3547;
+      --rose:       #C88A8A;
+      --rose-pale:  #F0D8D4;
+      --gold:       #B08D57;
+      --gold-light: #D9BE93;
+      --ink:        #2A1E24;
+      --muted:      #8A6F78;
+      --line:       #E2CFCA;
+      --white:      #FFFDFC;
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: var(--blush);
+      color: var(--ink);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .serif { font-family: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Times New Roman', serif; }
+
+    /* HERO */
+    .hero {
+      min-height: 100svh;
+      background: var(--plum);
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(48px, 9vw, 96px) clamp(24px, 7vw, 88px);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 55% at 78% 22%, rgba(217,190,147,0.20) 0%, transparent 68%),
+        radial-gradient(ellipse 60% 70% at 12% 88%, rgba(200,138,138,0.22) 0%, transparent 62%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 760px;
+      clip-path: inset(0 0 100% 0);
+      animation: heroReveal 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+    }
+    .hero-eyebrow {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.26em;
+      text-transform: uppercase; color: var(--gold-light); margin-bottom: 26px;
+    }
+    .hero-title {
+      font-size: clamp(44px, 9vw, 96px); font-weight: 500; line-height: 1.02;
+      letter-spacing: -0.01em; margin-bottom: 26px;
+    }
+    .hero-title em { font-style: italic; color: var(--gold-light); }
+    .hero-sub {
+      font-size: clamp(16px, 2.4vw, 21px); font-weight: 300;
+      color: rgba(255,255,255,0.74); max-width: 500px; margin-bottom: 44px;
+    }
+    .hero-cta { display: inline-flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .btn {
+      background: var(--rose); color: var(--white); font-weight: 600; font-size: 14px;
+      letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none;
+      padding: 17px 40px; border-radius: 40px;
+      transition: transform 0.18s ease, background 0.2s ease; display: inline-block;
+    }
+    .btn:hover { transform: translateY(-2px); background: var(--gold); }
+    .hero-phone { color: rgba(255,255,255,0.6); font-size: 14px; text-decoration: none; letter-spacing: 0.03em; }
+    .hero-phone:hover { color: var(--gold-light); }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(28px) scale(0.985); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    .section { padding: clamp(64px, 10vw, 128px) clamp(24px, 7vw, 88px); }
+    .label {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--rose); margin-bottom: 20px;
+    }
+    .head {
+      font-size: clamp(28px, 4.4vw, 46px); font-weight: 500; line-height: 1.18;
+      color: var(--plum); max-width: 620px;
+    }
+    .head em { font-style: italic; color: var(--gold); }
+
+    /* SERVICES */
+    .services { background: var(--white); }
+    .services-grid {
+      display: grid; grid-template-columns: 1fr; gap: 2px;
+      margin-top: 56px; background: var(--line);
+      border: 1px solid var(--line);
+    }
+    .svc { background: var(--white); padding: 34px 32px; }
+    .svc h3 { font-size: 19px; font-weight: 600; color: var(--plum); margin-bottom: 10px; }
+    .svc p { font-size: 14px; color: var(--muted); }
+
+    /* PRICING */
+    .pricing { background: var(--blush); }
+    .price-list { margin-top: 48px; max-width: 640px; }
+    .price-row {
+      display: flex; align-items: baseline; gap: 16px;
+      padding: 20px 0; border-bottom: 1px solid var(--line);
+    }
+    .price-name { font-size: 17px; font-weight: 500; color: var(--ink); white-space: nowrap; }
+    .price-dots { flex: 1; border-bottom: 1px dotted var(--muted); transform: translateY(-4px); opacity: 0.5; }
+    .price-amt { font-size: 17px; font-weight: 600; color: var(--rose); white-space: nowrap; }
+    .price-note { margin-top: 24px; font-size: 13px; color: var(--muted); font-style: italic; }
+
+    /* TESTIMONIALS */
+    .testimonials { background: var(--plum); color: var(--white); }
+    .testimonials .label { color: var(--gold-light); }
+    .t-grid { display: grid; grid-template-columns: 1fr; gap: 32px; margin-top: 56px; }
+    .t-card {
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 6px; padding: 36px 34px;
+    }
+    .t-quote { font-size: clamp(17px, 2.1vw, 21px); font-style: italic; line-height: 1.6; color: #fff; margin-bottom: 20px; }
+    .t-author { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-light); }
+
+    /* SPOTLIGHT */
+    .spotlight { background: var(--rose-pale); }
+    .spotlight .head { color: var(--plum); }
+    .spotlight p { font-size: 16px; line-height: 1.85; color: var(--plum-soft); max-width: 620px; margin-top: 22px; }
+    .artist-tags { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 10px; }
+    .artist-tag {
+      background: var(--white); color: var(--plum); font-size: 12px; font-weight: 600;
+      letter-spacing: 0.06em; padding: 8px 18px; border-radius: 30px;
+    }
+
+    /* CONTACT */
+    .contact { background: var(--white); }
+    .contact-grid { display: grid; grid-template-columns: 1fr; gap: 32px; margin-top: 48px; }
+    .contact-block h4 {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--rose); margin-bottom: 12px;
+    }
+    .contact-block p, .contact-block a { font-size: 16px; color: var(--ink); text-decoration: none; }
+    .contact-block a:hover { color: var(--rose); }
+
+    /* BOOKING CTA */
+    .booking { background: var(--plum); color: var(--white); text-align: center; position: relative; overflow: hidden; }
+    .booking::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(200,138,138,0.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .booking .eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 18px; }
+    .booking h2 { font-size: clamp(30px, 5.2vw, 56px); font-weight: 500; line-height: 1.15; margin-bottom: 18px; }
+    .booking h2 em { font-style: italic; color: var(--gold-light); }
+    .booking p { color: rgba(255,255,255,0.6); font-size: 15px; margin-bottom: 42px; }
+    .booking .btn { font-size: 15px; padding: 19px 48px; }
+
+    .footer {
+      background: var(--plum); border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 26px clamp(24px, 7vw, 88px); display: flex; flex-wrap: wrap;
+      gap: 12px; justify-content: space-between; align-items: center;
+    }
+    .footer .n { font-weight: 600; color: rgba(255,255,255,0.7); }
+    .footer .c { font-size: 12px; color: rgba(255,255,255,0.35); letter-spacing: 0.06em; }
+
+    @keyframes heroReveal { to { clip-path: inset(0 0 0 0); } }
+
+    @media (min-width: 760px) {
+      .services-grid { grid-template-columns: repeat(3, 1fr); }
+      .t-grid { grid-template-columns: repeat(3, 1fr); }
+      .contact-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Nail Salon · Cambridge, Ontario</div>
+      <h1 class="hero-title serif">Town's Nails &amp; Spa<br><em>where every nail is perfect</em></h1>
+      <p class="hero-sub">A warm neighbourhood salon in Saginaw Square where Maya and her team take the time to get every detail right — the reason first-timers keep coming back.</p>
+      <div class="hero-cta">
+        <a href="tel:5196221234" class="btn">Book Your Appointment</a>
+        <a href="tel:5196221234" class="hero-phone">519-622-1234</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section services">
+    <div class="reveal">
+      <div class="label">The Menu</div>
+      <h2 class="head serif">Everything for hands, feet <em>and a little calm.</em></h2>
+    </div>
+    <div class="services-grid reveal">
+      <div class="svc"><h3>Manicures</h3><p>Classic and tidy shaping, cuticle care and a finish that lasts.</p></div>
+      <div class="svc"><h3>Pedicures</h3><p>Relaxing seated pedicures that leave feet fresh and smooth.</p></div>
+      <div class="svc"><h3>Detox Spa Pedicure</h3><p>An elevated soak-and-scrub treatment for a deeper reset.</p></div>
+      <div class="svc"><h3>Gel &amp; Acrylic</h3><p>Long-wear gel colour and full acrylic sets, finished perfectly.</p></div>
+      <div class="svc"><h3>Aromatherapy</h3><p>Add calming scents to any service for an extra touch of spa.</p></div>
+      <div class="svc"><h3>Massage Add-Ons</h3><p>Hand and body massage add-ons to round out your visit.</p></div>
+    </div>
+  </section>
+
+  <section class="section pricing">
+    <div class="reveal">
+      <div class="label">Pricing</div>
+      <h2 class="head serif">Fair, transparent pricing.</h2>
+    </div>
+    <div class="price-list reveal">
+      <div class="price-row"><span class="price-name">Classic Manicure</span><span class="price-dots"></span><span class="price-amt">from $25</span></div>
+      <div class="price-row"><span class="price-name">Gel Manicure</span><span class="price-dots"></span><span class="price-amt">from $40</span></div>
+      <div class="price-row"><span class="price-name">Spa Pedicure</span><span class="price-dots"></span><span class="price-amt">from $45</span></div>
+      <div class="price-row"><span class="price-name">Full Acrylic Set</span><span class="price-dots"></span><span class="price-amt">from $55</span></div>
+      <p class="price-note">Illustrative starting prices — call the salon to confirm current rates for your service.</p>
+    </div>
+  </section>
+
+  <section class="section testimonials">
+    <div class="reveal">
+      <div class="label">Loved by Regulars</div>
+      <h2 class="head serif" style="color:#fff;">The reviews were absolutely bang on.</h2>
+    </div>
+    <div class="t-grid">
+      <div class="t-card reveal"><p class="t-quote">Maya and her team are fantastic! Friendly, professional and skilled. Prices are very comparable and the services are top notch!</p><div class="t-author">— Facebook reviewer</div></div>
+      <div class="t-card reveal"><p class="t-quote">Today was my first day visiting this salon. The reviews were absolutely bang on — this place is amazing, the team along with the exceptional treatment was impeccable.</p><div class="t-author">— Judy</div></div>
+      <div class="t-card reveal"><p class="t-quote">Great job and awesome service! They take the time to make sure every nail is perfect!</p><div class="t-author">— Facebook reviewer</div></div>
+    </div>
+  </section>
+
+  <section class="section spotlight">
+    <div class="reveal">
+      <div class="label">The Team</div>
+      <h2 class="head serif">Led by Maya, finished with care.</h2>
+      <p>New clients often walk in because of the rave word-of-mouth around town — and leave understanding exactly why. Maya and the team are known for being friendly, professional and genuinely perfectionist about the finish on every single nail. Rated 4.3 stars across 49 reviews, it is the kind of place that makes a first visit feel like a return.</p>
+      <div class="artist-tags">
+        <span class="artist-tag">Attentive team</span>
+        <span class="artist-tag">Perfectionist finish</span>
+        <span class="artist-tag">Welcoming first visits</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section contact">
+    <div class="reveal">
+      <div class="label">Visit</div>
+      <h2 class="head serif">Find us in Cambridge.</h2>
+    </div>
+    <div class="contact-grid reveal">
+      <div class="contact-block"><h4>Location</h4><p>535 Saginaw Pkwy, Saginaw Square, Cambridge, ON</p></div>
+      <div class="contact-block"><h4>Call</h4><a href="tel:5196221234">519-622-1234</a></div>
+      <div class="contact-block"><h4>Email</h4><a href="mailto:townsnailsandspa@gmail.com">townsnailsandspa@gmail.com</a></div>
+    </div>
+  </section>
+
+  <section class="section booking">
+    <div class="reveal">
+      <div class="eyebrow">Your chair is waiting</div>
+      <h2 class="serif">Book your next set<br><em>at Town's Nails &amp; Spa.</em></h2>
+      <p>Open Mon–Sat 9am–8pm and Sun 10am–6pm. Come see why the reviews were bang on.</p>
+      <a href="tel:5196221234" class="btn">Call to Book — 519-622-1234</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="n">Town's Nails &amp; Spa</div>
+    <div class="c">Cambridge, Ontario</div>
+  </footer>
+
+  <script>
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), (i % 4) * 110);
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+
+</body>
+</html>

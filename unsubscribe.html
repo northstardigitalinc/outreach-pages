@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unsubscribe — North Star Digital</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background: #f0eeeb;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .card {
+      background: #fff;
+      max-width: 480px;
+      width: 100%;
+      padding: 48px 40px;
+      border-top: 4px solid #c0392b;
+    }
+    .brand {
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #1a1a1a;
+      margin-bottom: 32px;
+    }
+    h1 {
+      font-size: 26px;
+      font-weight: bold;
+      color: #1a1a1a;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    p {
+      font-size: 15px;
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+    #business-name {
+      color: #1a1a1a;
+      font-weight: bold;
+    }
+    button {
+      background: #c0392b;
+      color: #fff;
+      border: none;
+      padding: 14px 28px;
+      font-family: Georgia, serif;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      width: 100%;
+    }
+    button:hover { background: #a93226; }
+    button:disabled { background: #ccc; cursor: default; }
+
+    #state-confirm, #state-done, #state-error {
+      display: none;
+    }
+    .check {
+      font-size: 36px;
+      margin-bottom: 16px;
+    }
+    .done-text {
+      font-size: 22px;
+      font-weight: bold;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+    }
+    .done-sub {
+      font-size: 14px;
+      color: #888;
+    }
+    .error-text {
+      font-size: 15px;
+      color: #c0392b;
+    }
+
+    @media (max-width: 520px) {
+      .card { padding: 32px 24px; }
+      h1 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="brand">North Star Digital</div>
+
+    <!-- Initial state -->
+    <div id="state-initial">
+      <h1>Unsubscribe</h1>
+      <p>You'll be removed from future emails about <span id="business-name">your business</span>. We'll never contact you again.</p>
+      <button id="btn-unsub" onclick="doUnsubscribe()">Confirm Unsubscribe</button>
+    </div>
+
+    <!-- Loading state -->
+    <div id="state-confirm">
+      <p>Removing you...</p>
+    </div>
+
+    <!-- Done state -->
+    <div id="state-done">
+      <div class="check">✓</div>
+      <div class="done-text">You're unsubscribed.</div>
+      <div class="done-sub">No more emails from North Star Digital.</div>
+    </div>
+
+    <!-- Error state -->
+    <div id="state-error">
+      <div class="error-text">Something went wrong. Please email <a href="mailto:northstardigitalinc@gmail.com">northstardigitalinc@gmail.com</a> and we'll remove you manually.</div>
+    </div>
+  </div>
+
+  <script>
+    // ── Parse URL params ──────────────────────────────────────────────
+    const params = new URLSearchParams(window.location.search);
+    const email  = params.get('email')  || '';
+    const name   = params.get('name')   || 'your business';
+
+    document.getElementById('business-name').textContent = decodeURIComponent(name);
+
+    // ── Google Apps Script web app URL ────────────────────────────────
+    // Replace this with your deployed Apps Script URL after setup
+    const WEBHOOK_URL = 'PASTE_YOUR_APPS_SCRIPT_URL_HERE';
+
+    function show(id) {
+      ['state-initial','state-confirm','state-done','state-error'].forEach(s => {
+        document.getElementById(s).style.display = (s === id) ? 'block' : 'none';
+      });
+    }
+
+    async function doUnsubscribe() {
+      if (!email) {
+        show('state-error');
+        return;
+      }
+
+      document.getElementById('btn-unsub').disabled = true;
+      show('state-confirm');
+
+      try {
+        // If no webhook URL has been set yet, just show done (graceful degradation)
+        if (WEBHOOK_URL === 'PASTE_YOUR_APPS_SCRIPT_URL_HERE') {
+          setTimeout(() => show('state-done'), 600);
+          return;
+        }
+
+        const url = WEBHOOK_URL + '?email=' + encodeURIComponent(email) + '&name=' + encodeURIComponent(name);
+        await fetch(url, { method: 'GET', mode: 'no-cors' });
+        // no-cors means we can't read the response, but the request fires
+        setTimeout(() => show('state-done'), 800);
+      } catch (e) {
+        show('state-error');
+      }
+    }
+
+    // Show the initial state on load
+    show('state-initial');
+  </script>
+</body>
+</html>

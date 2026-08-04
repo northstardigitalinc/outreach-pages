@@ -43,10 +43,6 @@
       line-height: 1.6;
       margin-bottom: 32px;
     }
-    #business-name {
-      color: #1a1a1a;
-      font-weight: bold;
-    }
     button {
       background: #c0392b;
       color: #fff;
@@ -129,7 +125,7 @@
     <!-- Initial state -->
     <div id="state-initial">
       <h1>Unsubscribe</h1>
-      <p>You'll be removed from future emails about <span id="business-name">your business</span>. We'll never contact you again.</p>
+      <p>You'll be removed from future emails about your business. We'll never contact you again.</p>
       <button id="btn-unsub" onclick="doUnsubscribe()">Confirm Unsubscribe</button>
     </div>
 
@@ -160,9 +156,7 @@
     // ── Parse URL params ──────────────────────────────────────────────
     const params = new URLSearchParams(window.location.search);
     const email  = params.get('email')  || '';
-    const name   = params.get('name')   || 'your business';
-
-    document.getElementById('business-name').textContent = decodeURIComponent(name);
+    const name   = params.get('name')   || '';
 
     // ── Google Apps Script web app URL ────────────────────────────────
     // Replace this with your deployed Apps Script URL after setup

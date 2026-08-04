@@ -66,19 +66,50 @@
     #state-confirm, #state-done, #state-error {
       display: none;
     }
-    .check {
-      font-size: 36px;
-      margin-bottom: 16px;
+    .check-circle {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 24px;
+    }
+    .check-circle svg {
+      width: 72px;
+      height: 72px;
+    }
+    /* Circle draw */
+    .circle-ring {
+      stroke-dasharray: 201;
+      stroke-dashoffset: 201;
+      animation: draw-circle 0.5s ease forwards;
+    }
+    /* Checkmark draw */
+    .check-mark {
+      stroke-dasharray: 60;
+      stroke-dashoffset: 60;
+      animation: draw-check 0.35s ease forwards 0.45s;
+    }
+    @keyframes draw-circle {
+      to { stroke-dashoffset: 0; }
+    }
+    @keyframes draw-check {
+      to { stroke-dashoffset: 0; }
     }
     .done-text {
       font-size: 22px;
       font-weight: bold;
       color: #1a1a1a;
       margin-bottom: 8px;
+      opacity: 0;
+      animation: fade-up 0.4s ease forwards 0.75s;
     }
     .done-sub {
       font-size: 14px;
       color: #888;
+      opacity: 0;
+      animation: fade-up 0.4s ease forwards 0.9s;
+    }
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
     .error-text {
       font-size: 15px;
@@ -109,7 +140,12 @@
 
     <!-- Done state -->
     <div id="state-done">
-      <div class="check">✓</div>
+      <div class="check-circle">
+        <svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle class="circle-ring" cx="36" cy="36" r="32" stroke="#22c55e" stroke-width="4" stroke-linecap="round" fill="none"/>
+          <polyline class="check-mark" points="20,37 31,48 52,25" stroke="#22c55e" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </div>
       <div class="done-text">You're unsubscribed.</div>
       <div class="done-sub">No more emails from North Star Digital.</div>
     </div>
